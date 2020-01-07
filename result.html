@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Articles From CFR</title>
+    <link rel="stylesheet" type="text/css" href="static/custom.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.css">
+</head>
+
+<body>
+
+<!-- navbars-->
+<div id="wrap">
+    <!--navbar start-->
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">CFR Monitor, A Simple Scrapy for U ❥(^_-)</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 60px"></div>
+</div>
+
+<!-- main content-->
+<div class="container">
+    <!--dayoff notify-->
+    {% if dayoff_notify %}
+        <div class="page-header alert alert-info">
+            <h4>日期条件筛选命中记录</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table text-nowrap">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" class="text-center">Topic</th>
+                                <th scope="col" class="text-center">Title</th>
+                                <th scope="col" class="text-center">type</th>
+                                <th scope="col" class="text-center">Date</th>
+                                <th scope="col" class="text-center">DayOff</th>
+                                <th scope="col" class="text-center">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in dayoff_notify %}
+                            <tr class="text-center">
+                                <td>{{ item['topic'] }}</td>
+                                <td>{{ item['title'] }}</td>
+                                <td>{{ item['type'] }}</td>
+                                <td>{{ item['date'] }}</td>
+                                <td>{{ item['dayoff'] }}</td>
+                                <td><a href="{{ item['link'] }} " target="_blank">点击访问</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <!--keyword notify-->
+    {% if keyword_notify %}}
+        <div class="page-header alert alert-info">
+            <h4>关键词条件筛选命中记录</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table text-nowrap">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col" class="text-center">Topic</th>
+                                <th scope="col" class="text-center">Title</th>
+                                <th scope="col" class="text-center">type</th>
+                                <th scope="col" class="text-center">Date</th>
+                                <th scope="col" class="text-center">DayOff</th>
+                                <th scope="col" class="text-center">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in keyword_notify %}
+                            <tr class="text-center">
+                                <td>{{ item['topic'] }}</td>
+                                <td>{{ item['title'] }}</td>
+                                <td>{{ item['type'] }}</td>
+                                <td>{{ item['date'] }}</td>
+                                <td>{{ item['dayoff'] }}</td>
+                                <td><a href="{{ item['link'] }} " target="_blank">点击访问</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="container" style="margin-top: 60px"></div>
+</div>
+
+<!-- footer start-->
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">
+            {% block footer %}
+                本项目仅供学习交流代码使用，请勿用于其他违法违规用途。
+            {% endblock %}
+        </p>
+    </div>
+</div>
+</body>
+
+<!-- script loader-->
+<script src="static/bootstrap/js/jquery.min.js"></script>
+<script src="static/respond.min.js"></script>
+<script src="static/html5shiv.js"></script>
+<script src="static/popper.min.js"></script>
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
+</html>
