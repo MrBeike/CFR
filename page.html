@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <link rel="icon" type="image/png" href="//cdn.cfr.org//themes/custom/cfr_theme/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="//cdn.cfr.org//themes/custom/cfr_theme/favicon-16x16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="//cdn.cfr.org//themes/custom/cfr_theme/apple-touch-icon.png" />
+    <meta property="fb:pages" content="10234472029" />
+
+    <!-- ChartBeat Analytics -->
+    <script type='text/javascript'>var _sf_startpt=(new Date()).getTime()</script>
+    <!-- End ChartBeat Analytics -->
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"dd28942087",applicationID:"342008597"};window.NREUM||(NREUM={}),__nr_require=function(n,e,t){function r(t){if(!e[t]){var i=e[t]={exports:{}};n[t][0].call(i.exports,function(e){var i=n[t][1][e];return r(i||e)},i,i.exports)}return e[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(n,e,t){function r(){}function i(n,e,t){return function(){return o(n,[u.now()].concat(f(arguments)),e?null:this,t),e?void 0:this}}var o=n("handle"),a=n(4),f=n(5),c=n("ee").get("tracer"),u=n("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(n,e){s[e]=i(d+e,!0,"api")}),s.addPageAction=i(d+"addPageAction",!0),s.setCurrentRouteName=i(d+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(n,e){var t={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),n,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return e.apply(this,arguments)}catch(n){throw c.emit("fn-err",[arguments,this,n],t),n}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(n,e){m[e]=i(l+e)}),newrelic.noticeError=function(n,e){"string"==typeof n&&(n=new Error(n)),o("err",[n,u.now(),!1,e])}},{}],2:[function(n,e,t){function r(n,e){var t=n.getEntries();t.forEach(function(n){"first-paint"===n.name?a("timing",["fp",Math.floor(n.startTime)]):"first-contentful-paint"===n.name&&a("timing",["fcp",Math.floor(n.startTime)])})}function i(n){if(n instanceof c&&!s){var e,t=Math.round(n.timeStamp);e=t>1e12?Date.now()-t:f.now()-t,s=!0,a("timing",["fi",t,{type:n.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var o,a=n("handle"),f=n("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){o=new PerformanceObserver(r);try{o.observe({entryTypes:["paint"]})}catch(u){}}if("addEventListener"in document){var s=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(n){document.addEventListener(n,i,!1)})}}},{}],3:[function(n,e,t){function r(n,e){if(!i)return!1;if(n!==i)return!1;if(!e)return!0;if(!o)return!1;for(var t=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],4:[function(n,e,t){function r(n,e){var t=[],r="",o=0;for(r in n)i.call(n,r)&&(t[o]=e(r,n[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],5:[function(n,e,t){function r(n,e,t){e||(e=0),"undefined"==typeof t&&(t=n?n.length:0);for(var r=-1,i=t-e||0,o=Array(i<0?0:i);++r<i;)o[r]=n[e+r];return o}e.exports=r},{}],6:[function(n,e,t){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(n,e,t){function r(){}function i(n){function e(n){return n&&n instanceof r?n:n?c(n,f,o):o()}function t(t,r,i,o){if(!d.aborted||o){n&&n(t,r,i);for(var a=e(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(n,e){h[n]=v(n).concat(e)}function m(n,e){var t=h[n];if(t)for(var r=0;r<t.length;r++)t[r]===e&&t.splice(r,1)}function v(n){return h[n]||[]}function g(n){return p[n]=p[n]||i(t)}function w(n,e){u(n,function(n,t){e=e||"feature",y[t]=e,e in s||(s[e]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:e,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var f="nr@context",c=n("gos"),u=n(4),s={},p={},d=e.exports=i();d.backlog=s},{}],gos:[function(n,e,t){function r(n,e,t){if(i.call(n,e))return n[e];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return n[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(n,e,t){function r(n,e,t,r){i.buffer([n],r),i.emit(n,e,t)}var i=n("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(n,e,t){function r(n){var e=typeof n;return!n||"object"!==e&&"function"!==e?-1:n===window?0:a(n,o,function(){return i++})}var i=1,o="nr@id",a=n("gos");e.exports=r},{}],loader:[function(n,e,t){function r(){if(!x++){var n=E.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return s.abort();u(y,function(e,t){n[e]||(n[e]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=l.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=n("handle"),u=n(4),s=n("ee"),p=n(3),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1158.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=e.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};n(1),n(2),l[m]?(l[m]("DOMContentLoaded",o,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",i),d[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=n(6)},{}],"wrap-function":[function(n,e,t){function r(n){return!(n&&n instanceof Function&&n.apply&&!n[a])}var i=n("ee"),o=n(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;e.exports=function(n,e){function t(n,e,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){d([u,"",[r,a,i],f])}s(e+"start",[r,a,i],f);try{return c=n.apply(a,r)}catch(p){throw s(e+"err",[r,a,p],f),p}finally{s(e+"end",[r,a,c],f)}}return r(n)?n:(e||(e=""),nrWrapper[a]=n,p(n,nrWrapper),nrWrapper)}function u(n,e,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<e.length;c++)f=e[c],a=n[f],r(a)||(n[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||e){var o=c;c=!0;try{n.emit(t,r,i,e)}catch(a){d([a,t,r,i])}c=o}}function p(n,e){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(n);return t.forEach(function(t){Object.defineProperty(e,t,{get:function(){return n[t]},set:function(e){return n[t]=e,e}})}),e}catch(r){d([r])}for(var i in n)f.call(n,i)&&(e[i]=n[i]);return e}function d(e){try{n.emit("internal-error",e)}catch(t){}}return n||(n=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<style id="chartbeat-flicker-control-style" type="text/css">body { visibility: hidden !important; }</style>
+<script>var dataLayer = [{"pub type":"chapter_detail","user category":"anonymous","nodeid_dl":"64"}];</script>
+<meta name="title" content="Publications | Council on Foreign Relations" />
+<meta property="og:site_name" content="Council on Foreign Relations" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://www.cfr.org/publications" />
+<meta name="twitter:site" content="@CFR_org" />
+<meta property="og:type" content="chapter_detail" />
+<meta name="twitter:description" content="CFR publishes reports and papers for the interested public, the academic community, and foreign policy experts. See below for a complete list of CFR publications. Individual copies of books and reports are available for purchase from Amazon.com and other" />
+<meta property="og:title" content="Publications" />
+<meta property="og:description" content="CFR publishes reports and papers for the interested public, the academic community, and foreign policy experts. See below for a complete list of CFR publications. Individual copies of books and reports are available for purchase from Amazon.com and other" />
+<meta name="twitter:image" content="https://www.cfr.org/themes/custom/cfr_theme/src/assets/images/cfr.jpg?12345" />
+<meta property="og:image" content="https://www.cfr.org/themes/custom/cfr_theme/src/assets/images/cfr.jpg?12345" />
+<meta property="og:street_address" content="58 East 68th Street" />
+<meta property="og:locality" content="New York" />
+<meta property="og:region" content="NY" />
+<meta property="og:postal_code" content="10065" />
+<meta property="og:country_name" content="USA" />
+<meta property="og:phone_number" content="1.212.434.9400" />
+<meta property="og:fax_number" content="1.212.434.9800" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta property="og:url" content="https://www.cfr.org/publications" />
+<meta name="description" content="CFR publishes reports and papers for the interested public, the academic community, and foreign policy experts. See below for a complete list of CFR publications. Individual copies of books and reports are available for purchase from Amazon.com and other retailers. For information on permissions, translations, or bulk copies of CFR publications, please email publications@cfr.org. " />
+<meta name="twitter:title" content="Publications" />
+<link rel="shortcut icon" href="//cdn.cfr.org/themes/custom/cfr_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+
+    <meta name="google-site-verification" content="ed21dLJA4q-k2GnrORmTFP8mc97sOOWjd-ZkJbmPCgw" />
+    <meta name="msvalidate.01" content="846D62D6CE4E94B1C328BE585F36F0DE" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-KFS3NQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <title>Publications | Council on Foreign Relations</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_V4sFjLgxulHBo_lt7xDSba8eBa4H_hfM3xa7aNBOx4k.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_MSSAdun-1vD9Nz8Yetn6rQYZZO2QJ3Tq7UotvEnsJpQ.css" />
+
+    
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+<script src="/sites/default/files/js/js_JvjVZf22lVrqBDpom2woUqDL0kH_iOH-F9GakV8hJvE.js"></script>
+<script src="//static.chartbeat.com/js/chartbeat_mab.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+
+
+  </head>
+  <body class="toolbar-themes toolbar-no-tabs toolbar-no-icons toolbar-themes-admin-theme--cfr-admin node-chapter_detail page--type--chapter_detail page--immersive node--64 published">
+  <div class="body-clip-overflow">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFS3NQ"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+        <a href="#main-content" class="visually-hidden focusable">
+      Skip to main content
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+<div class="layout-container">
+
+  <header role="banner">
+      <div>
+    <div id="block-topicnavigationblock">
+  
+    
+      
+
+
+
+
+<div class="main-nav-overlay">&nbsp;</div>
+<div class="search-overlay">
+  <div class="search-overlay__main-wrapper">
+    <div class="search-overlay__close-hotspot">
+            <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="icon icon-close">
+    <title>Close</title>
+    <path d="M10.417 12.5L0 22.917 2.083 25 12.5 14.583 22.917 25 25 22.917 14.583 12.5 25 2.083 22.917 0 12.5 10.417 2.083 0 0 2.083 10.417 12.5z" class="icon-fill" fill="none"/>
+</svg>
+  
+    </div>
+    <span class="search-overlay__title">Search</span>
+    <form class="search-overlay__form" action="/search">
+      <input class="search-overlay__search-bar" type="search" name="keyword" placeholder="What are you searching for?">
+        
+                
+  
+  
+  <div class="button-container button-container--with-breakpoints button-container--color-transparent button-container--size-regular button-container--type-single ">
+        <button class="button-container__btn" >Search</button>
+
+      </div>
+
+    </form>
+        <span class="search-overlay__sub-title">Popular Searches</span>
+    <ul class="search-overlay__popular-searches">
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Iran">Iran</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=North%20Korea">North Korea</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Turkey">Turkey</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Syria">Syria</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=China">China</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Mexico">Mexico</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Russia">Russia</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Venezuela">Venezuela</a>
+        </li>
+              <li class="search-overlay__popular-search-item">
+          <a class="search-overlay__popular-search-item-link" href="/search?keyword=Iraq">Iraq</a>
+        </li>
+          </ul>
+      </div>
+</div>
+
+<nav class="main-nav  main-nav--with-trending  ">
+  <a href="/" class="main-nav__logo-btn">
+          <svg viewBox="0 0 125 60" class="main-nav__logo-signature icon-logo-signature" xmlns="http://www.w3.org/2000/svg">
+    <title>Logo</title>
+    <path d="M106.909 13.178c-.502.92-1.081 1.458-1.854 1.458-.713 0-1.01-.522-.975-1.458.062-1.772 1.163-4.833 2.824-4.833.6 0 .999.416.97 1.371-.026.912-.386 2.406-.965 3.462m-.055-5.377c-2.64 0-4.56 2.264-4.63 4.755-.04 1.428.743 2.647 2.703 2.647 3.06 0 4.676-2.7 4.73-4.714.053-1.57-.944-2.688-2.803-2.688m17.484 3.789c0-.612-.316-1.01-.782-1.01-.404 0-.679.3-.679.677 0 .483.45.613.45 1.239-.001.259-.103.519-.32.765-.31.297-.748.513-2.042.513h-3.142c-.364 0-.465-.154-.313-.587.468-1.341 1.109-2.92 1.241-3.587.176-.876-.203-1.687-1.315-1.687-1.749 0-2.89 1.524-4.426 4.42h-.089s1.115-2.606 1.115-3.464c0-.61-.367-.946-1.026-.946-1.009 0-2.041 1.05-2.486 1.63l.31.302c.203-.255.51-.557.737-.733.402-.312.808-.263.687.407-.155.866-1.328 3.959-1.961 5.535h1.827c1.875-3.756 3.251-6.174 4.345-6.174.317 0 .483.196.483.53 0 .675-.985 2.959-1.389 4.312-.238.8-.183 1.332.52 1.332h3.498c1.451 0 2.618-.677 3.122-1.04 1.003-.68 1.635-1.614 1.635-2.433M10.751 24.923v-2.138H2.058v14.48h2.448V30.94h5.657v-2.143H4.506v-3.874zm71.256-.185c-1.474-1.462-3.291-2.302-5.748-2.302-4.258 0-7.677 3.079-7.676 7.66-.001 4.576 3.074 7.48 7.453 7.48h.014c4.075 0 7.1-2.548 7.115-6.755v-.448h-7.093v2.06h4.397c-.473 2.002-2.291 2.938-4.271 2.938-3.055 0-5.025-2.035-5.028-5.347.008-3.065 2.025-5.4 4.976-5.405 2.104 0 3.426.977 4.223 1.776l1.638-1.657zM4.49 51.483v-4.486h2.005c2.614 0 2.919 1.203 2.919 2.105 0 .888-.377 2.381-2.901 2.381H4.49zm3.519 1.851s-.018-.018.112-.034c2.109-.247 3.73-1.928 3.73-4.252 0-2.538-1.893-4.18-4.818-4.18H2.058v14.535H4.49v-6.019h.592l4.895 6.02h3.09l-5.06-6.07zm9.314-8.445v14.533h9.205v-2.114h-6.68v-4.337h5.546v-2.108h-5.546v-3.866h6.21v-2.108zm13.937-.022v14.535h8.865v-2.094h-6.343v-12.44zm24.952 0v2.13h4.494v12.407h2.438V46.995h4.49v-2.13zM71.44 59.402h2.529V44.866H71.44zm35.288-5.305l-9.756-9.776v15.082h2.43v-9.167c.423.418 9.757 9.764 9.757 9.764V44.867h-2.431v9.23zm11.854-3.111c-1.794-.892-2.6-1.555-2.6-2.6 0-1.58 1.623-1.775 2.107-1.775 1.029 0 1.988.344 2.834 1.133l1.234-1.761c-1.366-1.073-2.622-1.393-4.068-1.393-2.648 0-4.5 1.61-4.5 3.924 0 2.215 1.455 3.317 3.917 4.575 1.699.867 2.557 1.632 2.557 2.654 0 1.142-.993 1.819-2.301 1.819-1.38 0-2.47-.465-3.567-1.488l-1.375 1.721c1.582 1.46 3.24 1.87 4.763 1.87 3.286 0 4.942-1.864 4.942-4.14 0-2.331-1.765-3.454-3.943-4.54M12.08 11.201c-1.172 1.342-2.672 2.016-4.33 2.016-2.959 0-5.17-2.004-5.17-5.403 0-3.105 2.076-5.258 4.862-5.258 1.55 0 2.882.51 4.066 1.695l1.618-1.64C11.686 1.083 9.828.363 7.47.363 3.244.363 0 3.586 0 7.884c0 4.511 3.088 7.523 7.433 7.523 2.561 0 4.584-.862 6.046-2.523l-1.399-1.683zm66.172.03c-1.172 1.341-2.547 1.975-4.422 1.975-3.084 0-5.17-2.004-5.17-5.402 0-3.104 2.084-5.267 4.87-5.267 1.55 0 2.883.51 4.066 1.695l1.6-1.619c-1.39-1.536-3.287-2.25-5.645-2.25-4.343 0-7.472 3.223-7.472 7.521 0 4.511 3 7.523 7.435 7.523 2.677 0 4.676-.822 6.137-2.483l-1.4-1.693zm-38.644 4.05c3.432 0 5.411-1.862 5.973-4.36.11-.496.165-1.217.165-1.834V.548H43.31v8.468c0 2.721-1.342 4.075-3.68 4.075-2.41 0-3.854-1.398-3.854-4.075V.548H33.34v8.54c0 .642.057 1.338.17 1.833.573 2.498 2.598 4.36 6.1 4.36m13.05-9.512c.425.419 9.83 9.91 9.83 9.91V.548h-2.372v9.365L50.294 0v15.082h2.366V5.769zm30.062 9.313h2.525V.548h-2.525zM90.25.548V15.08h8.942v-2.095h-6.41V.548zM22.66 2.403c-2.794 0-5.06 2.216-5.06 5.466s2.154 5.467 5.06 5.467c2.904 0 5.056-2.217 5.056-5.467 0-3.25-2.264-5.466-5.057-5.466m-7.613 5.464C15.042 3.503 18.316.25 22.66.25c4.344 0 7.614 3.254 7.613 7.618.001 4.362-3.136 7.617-7.613 7.617-4.478 0-7.617-3.255-7.613-7.617m5.94 16.692c-2.793 0-5.057 2.216-5.057 5.467 0 3.25 2.152 5.467 5.057 5.467 2.906 0 5.057-2.217 5.057-5.467 0-3.251-2.263-5.467-5.057-5.467m-7.613 5.465c-.005-4.365 3.269-7.62 7.613-7.62 4.345 0 7.616 3.255 7.614 7.62.002 4.363-3.137 7.617-7.614 7.617s-7.618-3.254-7.613-7.617m36.748.788h5.546v-2.108h-5.546v-3.866h6.208v-2.108h-8.734v14.534h9.205v-2.114h-6.679zm11.533 6.452h2.525V22.73h-2.525zm-26.489-7.92v-4.487h2.004c2.613 0 2.919 1.203 2.919 2.107 0 .887-.378 2.38-2.901 2.38h-2.022zm3.519 1.85s-.019-.017.111-.033c2.108-.247 3.73-1.928 3.73-4.252 0-2.538-1.894-4.182-4.818-4.182h-4.975v14.537h2.433v-6.018h.592l4.895 6.018h3.09l-5.058-6.07zm3.449 28.204h2.541l1.416-3.376h5.558l1.393 3.376h2.682l-6.774-15.49-6.816 15.49zm6.732-10.073l1.89 4.542h-3.789l1.9-4.542zm36.612-2.6c-2.792 0-5.056 2.216-5.056 5.466 0 3.251 2.153 5.468 5.056 5.468 2.907 0 5.06-2.217 5.06-5.468 0-3.25-2.264-5.466-5.06-5.466m-7.613 5.464c-.004-4.365 3.27-7.617 7.614-7.617 4.344 0 7.617 3.252 7.614 7.617.002 4.362-3.138 7.618-7.615 7.618s-7.617-3.256-7.613-7.618m11.558-24.238c.424.419 9.829 9.909 9.829 9.909V22.73h-2.37v9.366l-9.823-9.913v15.082h2.364v-9.313z" class="icon-fill" fill="none"/>
+</svg>
+  
+          <svg viewBox="0 0 24 31" class="main-nav__logo-monogram icon-logo-monogram" xmlns="http://www.w3.org/2000/svg">
+    <title>Logo</title>
+    <path d="M19.7 1.268C19.7.544 19.188 0 18.34 0c-1.908 0-3.523 2.049-4.418 3.55-1.471 2.463-2.456 6.02-3.235 9.78-.116.56-.545 2.667-.545 2.667H8.254l-.123.652h1.896c-.398 2.261-1.202 6.353-1.711 8.603-.47 2.075-1.063 4.396-2.657 4.988.185-.215.262-.586.262-.83-.001-.602-.497-1.107-1.202-1.107-.867 0-1.367.622-1.373 1.31-.005.739.534 1.298 1.537 1.298 1.97 0 4.832-2.082 6.337-9.018.328-1.516 1.039-5.244 1.039-5.244h1.96l.121-.652h-1.958s.717-3.92 1.43-7.123c.91-4.092 1.932-7.164 3.51-8.11a1.294 1.294 0 0 0-.225.709c0 .711.492 1.203 1.23 1.2.734-.003 1.374-.544 1.374-1.405zm4.178 11.912c0-.519-.368-1.189-1.314-1.189-1.72 0-2.84 2.174-3.33 3.214.165-.741.269-1.368.269-1.853 0-.82-.444-1.281-1.136-1.281-1.588 0-2.766 2.214-2.926 2.541l.4.208c.46-.848.965-1.414 1.356-1.414.248 0 .403.209.333.808-.105.918-.846 3.958-1.383 6.14h1.922s.325-1.197.678-2.385c.737-2.473 1.754-4.278 2.581-4.879a1.22 1.22 0 0 0-.04.338c.004.57.398 1.15 1.193 1.15.9 0 1.397-.678 1.397-1.398zm-18.995.668c0 .63.459 1.096 1.193 1.096.76 0 1.407-.587 1.407-1.422 0-.898-.763-1.572-2.28-1.572C2.277 11.95 0 14.44 0 17.308c0 1.983 1.247 3.261 3.256 3.261 2.21 0 3.359-1.482 3.864-2.243l-.401-.237c-.26.39-1.253 1.641-2.65 1.641-1.244 0-1.887-.905-1.887-2.48 0-2.637 1.463-4.78 3.078-4.78.282 0 .523.053.647.122-.626.147-1.024.653-1.024 1.256z" class="icon-fill" fill="none"/>
+</svg>
+  
+  </a>
+  <div class="main-nav__menu-hotspot">
+    <div class="main-nav__menu-btn">
+      <span class="main-nav__menu-btn-bar"></span>
+    </div>
+  </div>
+  <div class="main-nav__search-hotspot">
+          <svg viewBox="0 0 24 24" class="icon icon-search" xmlns="http://www.w3.org/2000/svg">
+    <title>Search</title>
+    <g class="icon-fill" fill="none" fill-rule="evenodd">
+        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm0-2a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+        <path d="M14.293 15.707l7 7 1.414-1.414-7-7z"/>
+    </g>
+</svg>
+  
+          <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" class="icon icon-close">
+    <title>Close</title>
+    <path d="M10.417 12.5L0 22.917 2.083 25 12.5 14.583 22.917 25 25 22.917 14.583 12.5 25 2.083 22.917 0 12.5 10.417 2.083 0 0 2.083 10.417 12.5z" class="icon-fill" fill="none"/>
+</svg>
+  
+  </div>
+    <div class="main-nav__trending-container main-nav__trending-container--start">
+    <div class="main-nav__trending-strip">
+      <h5 class="main-nav__trending-title">Trending</h5>
+      <ul class="main-nav__trending-list">
+                  <li class="main-nav__trend-item">
+            <a href="https://www.cfr.org/middle-east-and-north-africa/iran" class="main-nav__trend-item-link">Iran</a>
+          </li>
+                  <li class="main-nav__trend-item">
+            <a href="https://www.cfr.org/election2020" class="main-nav__trend-item-link">Election 2020</a>
+          </li>
+                  <li class="main-nav__trend-item">
+            <a href="https://www.cfr.org/asia/hong-kong" class="main-nav__trend-item-link">Hong Kong</a>
+          </li>
+                  <li class="main-nav__trend-item">
+            <a href="https://www.cfr.org/2019-0" class="main-nav__trend-item-link">2019 in Review</a>
+          </li>
+                  <li class="main-nav__trend-item">
+            <a href="https://www.cfr.org/europe-and-eurasia/ukraine" class="main-nav__trend-item-link">Ukraine</a>
+          </li>
+              </ul>
+    </div>
+  </div>
+        <div class="main-nav__members main-nav__members--wider-than-tablet">
+      <ul class="main-nav__members-list">
+        <li class="main-nav__members-list-item"><a href="/member/login" class="main-nav__members-link">Member Login</a></li>
+      </ul>
+    </div>
+    <div class="main-nav__menu-container">
+    <ul class="main-nav__categories">
+        <li class="main-nav__category">
+      <h4 class="main-nav__title">
+        <a href="/topics" class="main-nav__category-title-link">Topics</a>
+      </h4>
+      <div class="main-nav__sub-categories">
+        <ul class="main-nav__sub-categories-list">
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/topics" class="main-nav__sub-category-link macro-utils__link-to">All Topics</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/defense-and-security" class="main-nav__sub-category-link macro-utils__link-to">Defense &amp; Security</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/diplomacy-and-international-institutions" class="main-nav__sub-category-link macro-utils__link-to">Diplomacy &amp; International Institutions</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/economics" class="main-nav__sub-category-link macro-utils__link-to">Economics</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/energy-and-environment" class="main-nav__sub-category-link macro-utils__link-to">Energy &amp; Environment</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/health" class="main-nav__sub-category-link macro-utils__link-to">Health</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/human-rights" class="main-nav__sub-category-link macro-utils__link-to">Human Rights</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/politics-and-government" class="main-nav__sub-category-link macro-utils__link-to">Politics &amp; Government</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/social-issues" class="main-nav__sub-category-link macro-utils__link-to">Social Issues</a>
+
+          </li>
+                        </ul>
+      </div>
+    </li>
+        <li class="main-nav__category">
+      <h4 class="main-nav__title">
+        <a href="/regions" class="main-nav__category-title-link">Regions</a>
+      </h4>
+      <div class="main-nav__sub-categories">
+        <ul class="main-nav__sub-categories-list">
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/regions" class="main-nav__sub-category-link macro-utils__link-to">All Regions</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/americas" class="main-nav__sub-category-link macro-utils__link-to">Americas</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/asia" class="main-nav__sub-category-link macro-utils__link-to">Asia</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/europe-and-eurasia" class="main-nav__sub-category-link macro-utils__link-to">Europe &amp; Eurasia</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/global-commons" class="main-nav__sub-category-link macro-utils__link-to">Global Commons</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/middle-east-and-north-africa" class="main-nav__sub-category-link macro-utils__link-to">Middle East &amp; North Africa</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/oceania" class="main-nav__sub-category-link macro-utils__link-to">Oceania</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/sub-saharan-africa" class="main-nav__sub-category-link macro-utils__link-to">Sub-Saharan Africa</a>
+
+          </li>
+                        </ul>
+      </div>
+    </li>
+        <li class="main-nav__category">
+      <h4 class="main-nav__title">
+        <a href="/think-tank" class="main-nav__category-title-link">Think Tank</a>
+      </h4>
+      <div class="main-nav__sub-categories">
+        <ul class="main-nav__sub-categories-list">
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/think-tank" class="main-nav__sub-category-link macro-utils__link-to">More Think Tank</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/experts" class="main-nav__sub-category-link macro-utils__link-to">CFR Experts</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/programs" class="main-nav__sub-category-link macro-utils__link-to">Centers &amp; Programs</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/blog" class="main-nav__sub-category-link macro-utils__link-to">Blogs</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/in-the-news" class="main-nav__sub-category-link macro-utils__link-to">In the News</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/publications" class="main-nav__sub-category-link macro-utils__link-to">Publications</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/fellowships" class="main-nav__sub-category-link macro-utils__link-to">Fellowships</a>
+
+          </li>
+                        </ul>
+      </div>
+    </li>
+        <li class="main-nav__category">
+      <h4 class="main-nav__title">
+        <a href="/cfr-presents" class="main-nav__category-title-link">CFR Presents</a>
+      </h4>
+      <div class="main-nav__sub-categories">
+        <ul class="main-nav__sub-categories-list">
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/cfr-presents" class="main-nav__sub-category-link macro-utils__link-to">CFR Presents</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/event" class="main-nav__sub-category-link macro-utils__link-to">Events</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/event-series" class="main-nav__sub-category-link macro-utils__link-to">Series</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/explainers" class="main-nav__sub-category-link macro-utils__link-to">Explainers</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/quiz" class="main-nav__sub-category-link macro-utils__link-to">Quizzes</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/podcast-series" class="main-nav__sub-category-link macro-utils__link-to">Podcasts</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/conference-call-series" class="main-nav__sub-category-link macro-utils__link-to">Conference Calls</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/independent-task-force-program" class="main-nav__sub-category-link macro-utils__link-to">Independent Task Force Program</a>
+
+          </li>
+                        </ul>
+      </div>
+    </li>
+        <li class="main-nav__category">
+      <h4 class="main-nav__title">
+        <a href="/campus/cfr-campus" class="main-nav__category-title-link">CFR Campus</a>
+      </h4>
+      <div class="main-nav__sub-categories">
+        <ul class="main-nav__sub-categories-list">
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/campus/cfr-campus" class="main-nav__sub-category-link macro-utils__link-to">All CFR Campus</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/campus/programs" class="main-nav__sub-category-link macro-utils__link-to">Academic Programs</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/campus/teaching-notes" class="main-nav__sub-category-link macro-utils__link-to">Teaching Notes</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/campus/model-diplomacy" class="main-nav__sub-category-link macro-utils__link-to">Model Diplomacy</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/campus/world101" class="main-nav__sub-category-link macro-utils__link-to">World101</a>
+
+          </li>
+                        </ul>
+      </div>
+    </li>
+        <li class="main-nav__category">
+      <h4 class="main-nav__title">
+        <a href="/about" class="main-nav__category-title-link">About CFR</a>
+      </h4>
+      <div class="main-nav__sub-categories">
+        <ul class="main-nav__sub-categories-list">
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/about" class="main-nav__sub-category-link macro-utils__link-to">All About CFR</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/membership" class="main-nav__sub-category-link macro-utils__link-to">Membership</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/member-programs" class="main-nav__sub-category-link macro-utils__link-to">Member Programs</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/outreach" class="main-nav__sub-category-link macro-utils__link-to">Outreach</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/media" class="main-nav__sub-category-link macro-utils__link-to">For Media</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/career-opportunities" class="main-nav__sub-category-link macro-utils__link-to">Careers</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/support-cfr" class="main-nav__sub-category-link macro-utils__link-to">Support CFR</a>
+
+          </li>
+                  <li class="main-nav__sub-category">
+                
+                                                
+  
+  
+  <a href="/contact-us" class="main-nav__sub-category-link macro-utils__link-to">Contact</a>
+
+          </li>
+                                    
+  <div class="share-kit  share-kit--icon-color-grey share-kit--bg-color-white  share-kit--theme-none"
+    data-share-anchor=""
+    data-share-query=""
+    data-share-name=""
+    data-share-description=""
+    data-share-caption=""
+    data-share-picture=""
+    data-share-type=""
+  >
+    <div class="share-kit__icons">
+                                    <a class="share-kit__hotspot share-kit__facebook" href="https://www.facebook.com/councilonforeignrelations" target="_blank">
+                    <svg viewBox="0 0 9 19" class="icon icon-facebook" xmlns="http://www.w3.org/2000/svg">
+    <title>Facebook</title>
+    <path d="M0 5.993h1.861V4.171c0-.801.021-2.04.6-2.807C3.071.552 3.91 0 5.35 0c2.347 0 3.336.336 3.336.336l-.465 2.777s-.776-.226-1.5-.226c-.723 0-1.371.26-1.371.99v2.116h2.967l-.206 2.71H5.35v9.42H1.86v-9.42H0v-2.71l4.203 4.532" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__twitter" href="https://twitter.com/CFR_org" target="_blank">
+                    <svg viewBox="0 0 19 15" class="icon icon-twitter" xmlns="http://www.w3.org/2000/svg">
+    <title>Twitter</title>
+    <path d="M18.686 1.744a7.36 7.36 0 0 1-2.121.585A3.723 3.723 0 0 0 18.189.272a7.404 7.404 0 0 1-2.345.903A3.678 3.678 0 0 0 13.148 0c-2.04 0-3.692 1.664-3.692 3.719 0 .291.031.574.095.846A10.46 10.46 0 0 1 1.939.68c-.319.55-.5 1.187-.5 1.868a3.72 3.72 0 0 0 1.643 3.095 3.634 3.634 0 0 1-1.672-.465c-.002.016-.002.032-.002.048a3.713 3.713 0 0 0 2.964 3.645 3.638 3.638 0 0 1-1.669.064 3.7 3.7 0 0 0 3.45 2.582 7.375 7.375 0 0 1-4.586 1.591c-.298 0-.593-.016-.88-.051a10.406 10.406 0 0 0 5.66 1.67c6.793 0 10.507-5.665 10.507-10.58 0-.16-.003-.32-.011-.48a7.514 7.514 0 0 0 1.843-1.924" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__youtube" href="https://www.youtube.com/user/cfr/featured" target="_blank">
+                    <svg viewBox="0 0 19 13" class="icon icon-youtube" xmlns="http://www.w3.org/2000/svg">
+    <title>YouTube</title>
+    <path d="M7.817 8.968V3.82L12.6 6.333 7.817 8.968zm10.595-6.631C18.069.955 17.426.423 16.242.23 15.559.13 12.282 0 9.68 0h.011c-2.6 0-5.878.13-6.56.23C1.946.424 1.303.956.96 2.338.846 2.8.686 5.346.686 6.317v.213c0 .97.16 3.516.275 3.98.343 1.382.986 1.914 2.17 2.106.683.101 3.96.23 6.561.23h-.011c2.6 0 5.878-.129 6.56-.23 1.185-.192 1.828-.724 2.17-2.106.116-.464.275-3.009.275-3.98v-.213c0-.971-.159-3.516-.274-3.98z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__instagram" href="https://www.instagram.com/cfr_org/" target="_blank">
+                    <svg viewBox="0 0 19 19" class="icon icon-instagram" xmlns="http://www.w3.org/2000/svg">
+    <title>Instagram</title>
+    <path d="M9.703 5.495c-1.996 0-3.615 1.58-3.615 3.527 0 1.948 1.619 3.527 3.615 3.527 1.997 0 3.616-1.58 3.616-3.527 0-1.948-1.619-3.527-3.616-3.527zm6.949 2.169h-1.584c.15.493.23 1.014.23 1.555 0 3.014-2.505 5.458-5.595 5.458S4.11 12.233 4.11 9.219c0-.54.08-1.062.23-1.555H2.686v7.655c0 .396.322.72.716.72h12.534a.72.72 0 0 0 .716-.72V7.664zm-2.853-5.65a.815.815 0 0 0-.81.815v1.953c0 .449.364.816.81.816h2.034c.446 0 .81-.367.81-.816V2.83a.815.815 0 0 0-.81-.816H13.8zM2.997 0h13.379c1.27 0 2.31 1.047 2.31 2.326v13.47c0 1.28-1.04 2.326-2.31 2.326H2.996a2.325 2.325 0 0 1-2.31-2.326V2.326C.686 1.046 1.726 0 2.996 0z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__linkedin" href="https://www.linkedin.com/company/council-on-foreign-relations" target="_blank">
+                    <svg viewBox="0 0 19 18" class="icon icon-linkedin" xmlns="http://www.w3.org/2000/svg">
+    <title>LinkedIn</title>
+    <path d="M18.447 17.014h-3.799c0-.163.008-4.169-.007-6.075a4.948 4.948 0 0 0-.151-1.214c-.366-1.386-1.929-1.876-3.037-.962-.536.442-.823 1.013-.822 1.727.007 2.038.003 4.485.003 6.524 0 .144 0-.175 0 0h-3.77V5.599h3.752v1.552c.122-.135.19-.199.244-.274.98-1.347 2.348-1.718 3.906-1.52 1.548.197 2.66 1.037 3.213 2.52.227.61.316 1.272.468 1.91v7.227zM.941 17.013h3.75V5.603H.941v11.41zM2.802 3.99c-.97-.001-1.764-.533-2.018-1.353C.523 1.795.794.887 1.5.422 2.286-.1 3.135-.133 3.969.298c.728.376 1.016 1.04.986 1.842-.04 1.09-.935 1.852-2.153 1.85z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                            </div>
+
+      </div>
+
+                </ul>
+      </div>
+    </li>
+        </ul>
+
+          <div class="main-nav__members main-nav__members--mobile">
+        <ul class="main-nav__members-list">
+          <li class="main-nav__members-list-item"><a href="/member/login" class="main-nav__members-link">Member Login</a></li>
+        </ul>
+      </div>
+    
+    
+          <div class="main-nav__corporate-links main-nav__corporate-links--mobile">
+                  
+  <div class="share-kit  share-kit--icon-color-grey share-kit--bg-color-white  share-kit--theme-none"
+    data-share-anchor=""
+    data-share-query=""
+    data-share-name=""
+    data-share-description=""
+    data-share-caption=""
+    data-share-picture=""
+    data-share-type=""
+  >
+    <div class="share-kit__icons">
+                                    <a class="share-kit__hotspot share-kit__facebook" href="https://www.facebook.com/councilonforeignrelations" target="_blank">
+                    <svg viewBox="0 0 9 19" class="icon icon-facebook" xmlns="http://www.w3.org/2000/svg">
+    <title>Facebook</title>
+    <path d="M0 5.993h1.861V4.171c0-.801.021-2.04.6-2.807C3.071.552 3.91 0 5.35 0c2.347 0 3.336.336 3.336.336l-.465 2.777s-.776-.226-1.5-.226c-.723 0-1.371.26-1.371.99v2.116h2.967l-.206 2.71H5.35v9.42H1.86v-9.42H0v-2.71l4.203 4.532" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__twitter" href="https://twitter.com/CFR_org" target="_blank">
+                    <svg viewBox="0 0 19 15" class="icon icon-twitter" xmlns="http://www.w3.org/2000/svg">
+    <title>Twitter</title>
+    <path d="M18.686 1.744a7.36 7.36 0 0 1-2.121.585A3.723 3.723 0 0 0 18.189.272a7.404 7.404 0 0 1-2.345.903A3.678 3.678 0 0 0 13.148 0c-2.04 0-3.692 1.664-3.692 3.719 0 .291.031.574.095.846A10.46 10.46 0 0 1 1.939.68c-.319.55-.5 1.187-.5 1.868a3.72 3.72 0 0 0 1.643 3.095 3.634 3.634 0 0 1-1.672-.465c-.002.016-.002.032-.002.048a3.713 3.713 0 0 0 2.964 3.645 3.638 3.638 0 0 1-1.669.064 3.7 3.7 0 0 0 3.45 2.582 7.375 7.375 0 0 1-4.586 1.591c-.298 0-.593-.016-.88-.051a10.406 10.406 0 0 0 5.66 1.67c6.793 0 10.507-5.665 10.507-10.58 0-.16-.003-.32-.011-.48a7.514 7.514 0 0 0 1.843-1.924" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__youtube" href="https://www.youtube.com/user/cfr/featured" target="_blank">
+                    <svg viewBox="0 0 19 13" class="icon icon-youtube" xmlns="http://www.w3.org/2000/svg">
+    <title>YouTube</title>
+    <path d="M7.817 8.968V3.82L12.6 6.333 7.817 8.968zm10.595-6.631C18.069.955 17.426.423 16.242.23 15.559.13 12.282 0 9.68 0h.011c-2.6 0-5.878.13-6.56.23C1.946.424 1.303.956.96 2.338.846 2.8.686 5.346.686 6.317v.213c0 .97.16 3.516.275 3.98.343 1.382.986 1.914 2.17 2.106.683.101 3.96.23 6.561.23h-.011c2.6 0 5.878-.129 6.56-.23 1.185-.192 1.828-.724 2.17-2.106.116-.464.275-3.009.275-3.98v-.213c0-.971-.159-3.516-.274-3.98z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__instagram" href="https://www.instagram.com/cfr_org/" target="_blank">
+                    <svg viewBox="0 0 19 19" class="icon icon-instagram" xmlns="http://www.w3.org/2000/svg">
+    <title>Instagram</title>
+    <path d="M9.703 5.495c-1.996 0-3.615 1.58-3.615 3.527 0 1.948 1.619 3.527 3.615 3.527 1.997 0 3.616-1.58 3.616-3.527 0-1.948-1.619-3.527-3.616-3.527zm6.949 2.169h-1.584c.15.493.23 1.014.23 1.555 0 3.014-2.505 5.458-5.595 5.458S4.11 12.233 4.11 9.219c0-.54.08-1.062.23-1.555H2.686v7.655c0 .396.322.72.716.72h12.534a.72.72 0 0 0 .716-.72V7.664zm-2.853-5.65a.815.815 0 0 0-.81.815v1.953c0 .449.364.816.81.816h2.034c.446 0 .81-.367.81-.816V2.83a.815.815 0 0 0-.81-.816H13.8zM2.997 0h13.379c1.27 0 2.31 1.047 2.31 2.326v13.47c0 1.28-1.04 2.326-2.31 2.326H2.996a2.325 2.325 0 0 1-2.31-2.326V2.326C.686 1.046 1.726 0 2.996 0z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__linkedin" href="https://www.linkedin.com/company/council-on-foreign-relations" target="_blank">
+                    <svg viewBox="0 0 19 18" class="icon icon-linkedin" xmlns="http://www.w3.org/2000/svg">
+    <title>LinkedIn</title>
+    <path d="M18.447 17.014h-3.799c0-.163.008-4.169-.007-6.075a4.948 4.948 0 0 0-.151-1.214c-.366-1.386-1.929-1.876-3.037-.962-.536.442-.823 1.013-.822 1.727.007 2.038.003 4.485.003 6.524 0 .144 0-.175 0 0h-3.77V5.599h3.752v1.552c.122-.135.19-.199.244-.274.98-1.347 2.348-1.718 3.906-1.52 1.548.197 2.66 1.037 3.213 2.52.227.61.316 1.272.468 1.91v7.227zM.941 17.013h3.75V5.603H.941v11.41zM2.802 3.99c-.97-.001-1.764-.533-2.018-1.353C.523 1.795.794.887 1.5.422 2.286-.1 3.135-.133 3.969.298c.728.376 1.016 1.04.986 1.842-.04 1.09-.935 1.852-2.153 1.85z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                            </div>
+
+      </div>
+
+        <a class="main-nav__foreign-link" href="https://www.foreignaffairs.com/" target="_blank">ForeignAffairs.com</a>
+      </div>
+      </div>
+
+      <div class="main-nav__corporate-links main-nav__corporate-links--wider-than-tablet">
+      <a class="main-nav__foreign-link" href="https://www.foreignaffairs.com/" target="_blank">ForeignAffairs.com</a>
+    </div>
+  
+  
+  <!-- Article Navigation Elements -->
+  <div class="main-nav__article-title">
+    <span class="main-nav__article-title-text"></span>
+              
+  <div class="share-kit share-kit--collapsed share-kit--icon-color-brown share-kit--bg-color-beige  share-kit--theme-none"
+    data-share-anchor=""
+    data-share-query=""
+    data-share-name=""
+    data-share-description=""
+    data-share-caption=""
+    data-share-picture=""
+    data-share-type=""
+  >
+    <div class="share-kit__icons">
+                        <button class="share-kit__hotspot share-kit__facebook" onclick="CFR.Share.facebook(this)">
+                  <svg viewBox="0 0 9 19" class="icon icon-facebook" xmlns="http://www.w3.org/2000/svg">
+    <title>Facebook</title>
+    <path d="M0 5.993h1.861V4.171c0-.801.021-2.04.6-2.807C3.071.552 3.91 0 5.35 0c2.347 0 3.336.336 3.336.336l-.465 2.777s-.776-.226-1.5-.226c-.723 0-1.371.26-1.371.99v2.116h2.967l-.206 2.71H5.35v9.42H1.86v-9.42H0v-2.71l4.203 4.532" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__twitter" onclick="CFR.Share.twitter(this)">
+                  <svg viewBox="0 0 19 15" class="icon icon-twitter" xmlns="http://www.w3.org/2000/svg">
+    <title>Twitter</title>
+    <path d="M18.686 1.744a7.36 7.36 0 0 1-2.121.585A3.723 3.723 0 0 0 18.189.272a7.404 7.404 0 0 1-2.345.903A3.678 3.678 0 0 0 13.148 0c-2.04 0-3.692 1.664-3.692 3.719 0 .291.031.574.095.846A10.46 10.46 0 0 1 1.939.68c-.319.55-.5 1.187-.5 1.868a3.72 3.72 0 0 0 1.643 3.095 3.634 3.634 0 0 1-1.672-.465c-.002.016-.002.032-.002.048a3.713 3.713 0 0 0 2.964 3.645 3.638 3.638 0 0 1-1.669.064 3.7 3.7 0 0 0 3.45 2.582 7.375 7.375 0 0 1-4.586 1.591c-.298 0-.593-.016-.88-.051a10.406 10.406 0 0 0 5.66 1.67c6.793 0 10.507-5.665 10.507-10.58 0-.16-.003-.32-.011-.48a7.514 7.514 0 0 0 1.843-1.924" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__linkedin" onclick="CFR.Share.linkedin(this)">
+                  <svg viewBox="0 0 19 18" class="icon icon-linkedin" xmlns="http://www.w3.org/2000/svg">
+    <title>LinkedIn</title>
+    <path d="M18.447 17.014h-3.799c0-.163.008-4.169-.007-6.075a4.948 4.948 0 0 0-.151-1.214c-.366-1.386-1.929-1.876-3.037-.962-.536.442-.823 1.013-.822 1.727.007 2.038.003 4.485.003 6.524 0 .144 0-.175 0 0h-3.77V5.599h3.752v1.552c.122-.135.19-.199.244-.274.98-1.347 2.348-1.718 3.906-1.52 1.548.197 2.66 1.037 3.213 2.52.227.61.316 1.272.468 1.91v7.227zM.941 17.013h3.75V5.603H.941v11.41zM2.802 3.99c-.97-.001-1.764-.533-2.018-1.353C.523 1.795.794.887 1.5.422 2.286-.1 3.135-.133 3.969.298c.728.376 1.016 1.04.986 1.842-.04 1.09-.935 1.852-2.153 1.85z" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__e-mail-filled" onclick="CFR.Share.email(this)">
+                  <svg viewBox="0 0 23 14" class="icon icon-e-mail-filled" xmlns="http://www.w3.org/2000/svg">
+    <title>Email</title>
+    <path d="M.915 0l10.258 7.808L21.673 0H.915zm10.258 8.804L0 .297V14h22.615V.297L11.173 8.804z" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__print-filled" onclick="CFR.Share.print(this)">
+                  <svg viewBox="0 0 17 17" class="icon icon-print-filled" xmlns="http://www.w3.org/2000/svg">
+    <title>Print</title>
+    <g class="icon-fill" fill="none" fill-rule="evenodd">
+        <path d="M13.985 4.973V2.92h-2.911V.212a.21.21 0 0 0-.21-.21H3.142a.21.21 0 0 0-.21.21v4.971h10.843a.21.21 0 0 0 .21-.21m2.923 1.062a.202.202 0 0 0-.202-.202H.202A.201.201 0 0 0 0 6.035l.021 7.695c0 .111.09.202.202.202h2.085v-4.97c0-.47.382-.853.852-.853h10.63c.47 0 .851.382.851.852v4.971h2.086a.203.203 0 0 0 .202-.202l-.02-7.695z"/>
+        <path d="M10.774 11.66H6.176a.326.326 0 0 1 0-.65h4.598a.324.324 0 1 1 0 .65m0 2.921H6.176a.326.326 0 0 1 0-.65h4.598a.324.324 0 1 1 0 .65M13.79 8.76H3.16a.201.201 0 0 0-.201.202v7.67c0 .11.09.201.202.201H13.79a.203.203 0 0 0 .202-.202v-7.67a.202.202 0 0 0-.202-.202m.195-6.469h-2.08a.21.21 0 0 1-.21-.21V0l2.29 2.29z"/>
+    </g>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__pdf" onclick="CFR.Share.pdf(this)">
+                  <svg viewBox="0 0 14 17" class="icon icon-pdf" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.503 0H.343A.343.343 0 0 0 0 .343v16.065c0 .189.153.342.343.342h13.16c.19 0 .343-.153.343-.342V.343A.343.343 0 0 0 13.503 0zm-2.157 5.798H5.54a.342.342 0 1 1 0-.683h5.806a.341.341 0 1 1 0 .683zm0 2.919H5.54a.342.342 0 1 1 0-.683h5.806a.341.341 0 1 1 0 .683zm0 2.919H5.54a.342.342 0 1 1 0-.683h5.806a.34.34 0 1 1 0 .683zm-8.394 1.981a.342.342 0 1 1-.683 0V3.222a.342.342 0 1 1 .683 0v10.395z" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                  </div>
+
+          <button type="button" class="share-kit__hotspot share-kit__collapse-btn">
+                      <svg viewBox="0 0 22 24" class="icon icon-share" xmlns="http://www.w3.org/2000/svg">
+    <title>Share</title>
+    <g class="icon-fill" fill="none" fill-rule="evenodd">
+        <path d="M8.292 2.255L2.444 8.037V6.47l5.848 5.782A1.103 1.103 0 1 1 6.74 13.82L.893 8.037a1.103 1.103 0 0 1 0-1.568L6.741.686a1.103 1.103 0 1 1 1.55 1.569z"/>
+        <path d="M19.485 22.766c0-8.01-6.783-14.59-14.988-14.59H1.899a1.103 1.103 0 0 1 0-2.206h2.598c9.409 0 17.194 7.553 17.194 16.796a1.103 1.103 0 1 1-2.206 0z"/>
+    </g>
+</svg>
+  
+      </button>
+      </div>
+
+  </div>
+
+</nav>
+
+<!-- Helper is used to hold the navigation in place when it de-attaches from the body -->
+<!-- Adding margin-top to body tag causes jumping issues and mis-positions high-light-to-share component -->
+<!-- Helper also ensures navigation component remains autonomous from other components -->
+<div class="main-nav-helper"></div>
+
+  </div>
+<div id="block-newsalert">
+  
+    
+      
+
+
+  </div>
+
+  </div>
+
+  </header>
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+        <div id="block-cfr-theme-messages">
+  
+    
+      
+  </div>
+<div class="block-region-top"><div>
+  
+    
+      
+<article role="article" about="/publications" class="main-wrapper cfr-transported-content main-wrapper--starts-with-landing-filters">
+  <div>
+        
+  
+
+
+
+
+
+<header class="header-contextual header-contextual--immersive header-contextual--with-content header-contextual--content-typeless header-contextual--color-blue header-contextual--without-dropdown header-contextual--without-image  empty   ">
+  <div class="header-contextual__main-wrapper">
+        <div class="header-contextual__section-wrapper">
+                        <a class="header-contextual__eyebrow-title" href="/think-tank">Think Tank</a>
+                    <h1 class="header-contextual__main-title">Publications</h1>
+
+            
+          </div>
+  </div>
+                <div class="header-contextual__content-container">
+    <section class="header-contextual__content-wrapper">
+      CFR publishes reports and papers for the interested public, the academic community, and foreign policy experts. See below for a complete list of CFR publications.&nbsp;Individual copies of books and reports are available for purchase from Amazon.com and other retailers. For information on permissions, translations, or bulk copies of CFR publications, please email <a href="publications@cfr.org">publications@cfr.org</a>.&nbsp;
+
+          </section>
+
+      </div>
+  
+      </header>
+
+
+          <div class="main-wrapper__article-body">
+                                <div class="field body-content">
+                      
+                                    <div class="field body-content body-content--with-right-rail">
+                <div class="paragraph paragraph--type--block-reference paragraph--view-mode--default">
+      
+            <div><div class="views-element-container" id="block-views-block-filtered-landing-blocks-block-publications">
+  
+    
+      <div block="block-views-block-filtered-landing-blocks-block-publications"><div class="card-hub--group card-hub__group js-view-dom-id-c0a4b58869048cad27e4eaf31b914ed522d10d1ed0faf3b2d65b336ed18045b2">
+  
+  
+  
+
+  
+  <form class="views-exposed-form" data-drupal-selector="views-exposed-form-filtered-landing-blocks-block-publications" action="/publications" method="get" id="views-exposed-form-filtered-landing-blocks-block-publications" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-select form-item-topics js-form-item-topics">
+      <label for="edit-topics">Topics</label>
+        <select data-drupal-selector="edit-topics" id="edit-topics" name="topics" class="form-select"><option value="All" selected="selected">- Any -</option><option value="338">Defense and Security</option><option value="339">Diplomacy and International Institutions</option><option value="340">Economics</option><option value="341">Energy and Environment</option><option value="342">Health</option><option value="343">Human Rights</option><option value="344">Politics and Government</option><option value="345">Social Issues</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-regions js-form-item-regions">
+      <label for="edit-regions">Regions</label>
+        <select data-drupal-selector="edit-regions" id="edit-regions" name="regions" class="form-select"><option value="All" selected="selected">- Any -</option><option value="114">Americas</option><option value="115">Asia</option><option value="116">Europe and Eurasia</option><option value="117">Global Commons</option><option value="118">Middle East and North Africa</option><option value="119">Oceania</option><option value="121">Sub-Saharan Africa</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-type js-form-item-type">
+      <label for="edit-type">Type</label>
+        <select data-drupal-selector="edit-type" id="edit-type" name="type" class="form-select"><option value="All" selected="selected">- Any -</option><option value="95">Testimony</option><option value="107">Task Force Report</option><option value="475">Report</option><option value="106">Policy Innovation Memorandum</option><option value="104">Council Special Report</option><option value="103">Contingency Planning Memorandum</option><option value="102">Book</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-sort-by js-form-item-sort-by">
+      <label for="edit-sort-by">Content: Release Date</label>
+        <select data-drupal-selector="edit-sort-by" id="edit-sort-by" name="sort_by" class="form-select"><option value="field_book_release_date_value" selected="selected">Sort by</option></select>
+        </div>
+<div class="js-form-item form-item js-form-type-select form-item-sort-order js-form-item-sort-order">
+      <label for="edit-sort-order">Order</label>
+        <select data-drupal-selector="edit-sort-order" id="edit-sort-order" name="sort_order" class="form-select"><option value="DESC" selected="selected">Newest</option><option value="ASC">Oldest</option></select>
+        </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions"><input data-drupal-selector="edit-submit-filtered-landing-blocks" type="submit" id="edit-submit-filtered-landing-blocks" value="Apply" class="button js-form-submit form-submit" />
+</div>
+
+
+</form>
+
+  
+
+  <div data-drupal-views-infinite-scroll-content-wrapper class="views-infinite-scroll-content-wrapper clearfix"><div class="landing-cards-grid landing-cards-grid--4-columns">
+  
+  <ul class="landing-cards-grid__list-container">
+
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/diplomacy-and-international-institutions/conflict-prevention" class="card-article__topic-tag-link">
+            Conflict Prevention
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/conflicts-watch-2020 " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Conflicts to Watch in 2020</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/12/GettyImages-1176181701%20copy.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">In CFR’s annual Preventive Priorities Survey,<em> </em>U.S. foreign policy experts assess the likelihood and impact of thirty potential conflicts that could emerge or escalate in the coming year.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/paul-b-stares" class="card-article__authors-link">Paul B. Stares</a></span>
+                    
+            
+                          <span class="card-article__date"> December 18, 2019</span>
+            
+                                                                                                                                <a href="/programs/center-preventive-action" class="card-article__series">
+                    Center for Preventive Action
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/americas/united-states" class="card-article__topic-tag-link">
+            United States
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/preparing-next-foreign-policy-crisis " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Preparing for the Next Foreign Policy Crisis</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/12/Discussion%20Paper_Stares_Cover_Front_black%20border.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+            
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/paul-b-stares" class="card-article__authors-link">Paul B. Stares</a></span>
+                    
+            
+                          <span class="card-article__date"> December 16, 2019</span>
+            
+                                                                                                                                <a href="/programs/center-preventive-action" class="card-article__series">
+                    Center for Preventive Action
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/americas/united-states" class="card-article__topic-tag-link">
+            United States
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/us-adults-knowledge-about-world " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">U.S. Adults’ Knowledge About the World</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/11/NatGeo_CFR_US_Knoweldge_cover.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">A new survey commissioned from Gallup by the Council on Foreign Relations and the National Geographic Society explores American adults’ knowledge about geography and world affairs.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/gallup-inc" class="card-article__authors-link">Gallup</a>, <a href="/bio/council-foreign-relations-0" class="card-article__authors-link">Council on Foreign Relations</a> and <a href="/bio/national-geographic-society" class="card-article__authors-link">National Geographic Society</a></span>
+                    
+            
+                          <span class="card-article__date"> December 1, 2019</span>
+            
+                                                                                                                        </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/energy-and-environment/climate-change" class="card-article__topic-tag-link">
+            Climate Change
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/book/building-resilient-tomorrow " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Building a Resilient Tomorrow</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/9780190909345.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/9780190909345.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/book_cover_image/9780190909345.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/9780190909345.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/9780190909345.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">While squarely confronting the scale of the risks the world faces because of climate change, this pragmatic guide focuses on solutions—some gradual and some more revolutionary—currently being deployed around the globe. </div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Book</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/alice-c-hill" class="card-article__authors-link">Alice C. Hill</a> and <a href="/bio/leonardo-martinez-diaz" class="card-article__authors-link">Leonardo Martinez-Diaz</a></span>
+                    
+            
+                          <span class="card-article__date"> November 1, 2019</span>
+            
+                                                                                                                                <a href="/programs/energy-security-and-climate-change-program" class="card-article__series">
+                    Energy Security and Climate Change Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-no-image">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/defense-and-security/cybersecurity" class="card-article__topic-tag-link">
+            Cybersecurity
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/preparing-future-assessment-emerging-cyber-threats " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Preparing for the Future: An Assessment of Emerging Cyber Threats</p>
+                        </div>
+          </a>
+      </div>
+
+            
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Testimony</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/robert-k-knake" class="card-article__authors-link">Robert K. Knake</a></span>
+                    
+            
+                          <span class="card-article__date"> October 22, 2019</span>
+            
+                                                                                                                                <a href="/programs/digital-and-cyberspace-policy-program" class="card-article__series">
+                    Digital and Cyberspace Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/defense-and-security/cybersecurity" class="card-article__topic-tag-link">
+            Cybersecurity
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/disclosure-policy-cybersecurity " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Expanding Disclosure Policy to Drive Better Cybersecurity</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/10/Disclosure.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Companies should disclose instances of cyber-enabled intellectual property theft. Disclosure requirements would give companies greater incentives to protect their intellectual property and allow investors to make better-informed decisions.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/robert-k-knake" class="card-article__authors-link">Robert K. Knake</a></span>
+                    
+            
+                          <span class="card-article__date"> October 16, 2019</span>
+            
+                                                                                                                                <a href="/programs/digital-and-cyberspace-policy-program" class="card-article__series">
+                    Digital and Cyberspace Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/human-rights/human-trafficking" class="card-article__topic-tag-link">
+            Human Trafficking
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/security-implications-human-trafficking " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">The Security Implications of Human Trafficking</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/09/CFR_WomenandTrafficking_WFP_09162019_CMYK%20final_front_border2.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Human trafficking can fuel conflict, drive displacement, and undercut the ability of international institutions to promote stability.&nbsp;The United States should work to disrupt and dismantle the criminal networks and terrorist groups that exploit conflict-related human trafficking, while prioritizing the prevention and prosecution of&nbsp;and protection from human trafficking in conflict contexts.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/jamille-bigio" class="card-article__authors-link">Jamille Bigio</a> and <a href="/expert/rachel-vogelstein" class="card-article__authors-link">Rachel B. Vogelstein</a></span>
+                    
+            
+                          <span class="card-article__date"> October 1, 2019</span>
+            
+                                                                                                                                <a href="/programs/women-and-foreign-policy-program" class="card-article__series">
+                    Women and Foreign Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/economics/technology-and-innovation" class="card-article__topic-tag-link">
+            Technology and Innovation
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/keeping-our-edge " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Innovation and National Security: Keeping Our Edge</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/image/2019/09/TFR_Cover_08272019_0.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/image/2019/09/TFR_Cover_08272019_0.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/image/2019/09/TFR_Cover_08272019_0.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/image/2019/09/TFR_Cover_08272019_0.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/image/2019/09/TFR_Cover_08272019_0.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+            
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Task Force Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/adam-segal" class="card-article__authors-link">Adam Segal</a>, <a href="/bio/james-manyika" class="card-article__authors-link">James Manyika</a>, <a href="/bio/william-h-mcraven" class="card-article__authors-link">William H. McRaven</a> and <a href="/bio/anya-schmemann" class="card-article__authors-link">Anya Schmemann</a></span>
+                    
+            
+                          <span class="card-article__date"> September 18, 2019</span>
+            
+                                                                                                                        </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/energy-and-environment/climate-change" class="card-article__topic-tag-link">
+            Climate Change
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/impact-climate-risk-energy-system " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Impact of Climate Risk on the Energy System</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/09/CFR_ebook_ClimateRisk_Cover_09062019_front_black%20border_0.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Climate change poses risks to energy security, financial markets, and national security. Energy companies and local, state, and federal governments need to better prepare to face these challenges. &nbsp;
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/experts/amy-myers-jaffe" class="card-article__authors-link">Amy M. Jaffe</a>, <a href="/bio/joshua-w-busby-0" class="card-article__authors-link">Joshua W. Busby</a>, <a href="/bio/jim-blackburn" class="card-article__authors-link">Jim  Blackburn</a>, <a href="/bio/christina-copeland" class="card-article__authors-link">Christina Copeland</a>, <a href="/bio/sara-law" class="card-article__authors-link">Sara Law</a>, <a href="/bio/joan-m-ogden" class="card-article__authors-link">Joan M. Ogden</a> and <a href="/bio/paul-griffin" class="card-article__authors-link">Paul A. Griffin</a></span>
+                    
+            
+                          <span class="card-article__date"> September 10, 2019</span>
+            
+                                                                                                                                <a href="/programs/greenberg-center-geoeconomic-studies" class="card-article__series">
+                    Greenberg Center for Geoeconomic Studies
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/women-and-economic-growth" class="card-article__topic-tag-link">
+            Women and Economic Growth
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/investing-girls-stem-education-developing-countries " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Investing in Girls’ STEM Education in Developing Countries</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/08/GettyImages-1005580370.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">The education gender gap costs the world between $15 trillion and $30 trillion in human capital. U.S. aid programs need to equip girls and women to participate in the modern digital economy.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Policy Innovation Memorandum</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/meighan-stone" class="card-article__authors-link">Meighan Stone</a> and <a href="/expert/rachel-vogelstein" class="card-article__authors-link">Rachel B. Vogelstein</a></span>
+                    
+            
+                          <span class="card-article__date"> August 7, 2019</span>
+            
+                                                                                                                                <a href="/programs/women-and-foreign-policy-program" class="card-article__series">
+                    Women and Foreign Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/defense-and-security/cybersecurity" class="card-article__topic-tag-link">
+            Cybersecurity
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/book/fifth-domain " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">The Fifth Domain</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/Fifth%20Domain%20high%20res.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/Fifth%20Domain%20high%20res.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/book_cover_image/Fifth%20Domain%20high%20res.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/Fifth%20Domain%20high%20res.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/Fifth%20Domain%20high%20res.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">An urgent new warning from two bestselling security experts—and a gripping inside look at how governments, firms, and ordinary citizens can confront and contain the tyrants, hackers, and criminals bent on turning the digital realm into a war zone. </div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Book</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/richard-clarke" class="card-article__authors-link">Richard A. Clarke</a> and <a href="/expert/robert-k-knake" class="card-article__authors-link">Robert K. Knake</a></span>
+                    
+            
+                          <span class="card-article__date"> July 16, 2019</span>
+            
+                                                                                                                                <a href="/programs/digital-and-cyberspace-policy-program" class="card-article__series">
+                    Digital and Cyberspace Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/economics/technology-and-innovation" class="card-article__topic-tag-link">
+            Technology and Innovation
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/securing-5g-networks " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Securing 5G Networks</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/07/Rob%20Williams%205G%20Cyber%20Brief%20Header.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">5G&nbsp;networks could revolutionize the digital economy, but with this opportunity&nbsp;come major cybersecurity challenges.&nbsp;U.S. policymakers need to respond using&nbsp;technical and regulatory measures, diplomacy, and investments in cybersecurity skills training.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/robert-williams" class="card-article__authors-link">Robert Williams</a></span>
+                    
+            
+                          <span class="card-article__date"> July 15, 2019</span>
+            
+                                                                                                                                <a href="/programs/digital-and-cyberspace-policy-program" class="card-article__series">
+                    Digital and Cyberspace Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/diplomacy-and-international-institutions/global-governance" class="card-article__topic-tag-link">
+            Global Governance
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/reevaluating-global-trade-governance-structures-address-climate-change " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Reevaluating Global Trade Governance Structures to Address Climate Change</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/Trade.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Climate change poses an immense challenge to the biosphere and global economy. To make international trade more environmentally friendly, the world needs to use rules that have been around for decades, create new rules, and find new space for climate change policy.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/maria-panezi" class="card-article__authors-link">Maria Panezi</a></span>
+                    
+            
+                          <span class="card-article__date"> July 2, 2019</span>
+            
+                                                                                                                                <a href="/programs/international-institutions-and-global-governance-program" class="card-article__series">
+                    International Institutions and Global Governance Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/diplomacy-and-international-institutions/global-governance" class="card-article__topic-tag-link">
+            Global Governance
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/anticipatory-governance-solar-radiation-management " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">The Anticipatory Governance of Solar Radiation Management</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/Geoengineering_0.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Emission reductions alone are unlikely to prevent severe climate change effects. Geoengineering proposals are a way forward, but they need legitimate and effective governance.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/oliver-geden" class="card-article__authors-link">Oliver Geden</a> and <a href="/bio/susanne-droge" class="card-article__authors-link">Susanne Dröge</a></span>
+                    
+            
+                          <span class="card-article__date"> July 2, 2019</span>
+            
+                                                                                                                                <a href="/programs/international-institutions-and-global-governance-program" class="card-article__series">
+                    International Institutions and Global Governance Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/defense-and-security/cybersecurity" class="card-article__topic-tag-link">
+            Cybersecurity
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/solving-identity-protection-post-office " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Solving the Identity-Protection Problem by Bringing the Post Office Into the Digital Age</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/USPS.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Revamping the U.S. Postal Service could help solve long-standing problems with validating identities in the digital realm and make email a true substitute for physical mail.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Policy Innovation Memorandum</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/robert-k-knake" class="card-article__authors-link">Robert K. Knake</a></span>
+                    
+            
+                          <span class="card-article__date"> June 27, 2019</span>
+            
+                                                                                                                                <a href="/programs/digital-and-cyberspace-policy-program" class="card-article__series">
+                    Digital and Cyberspace Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/international-finance-1" class="card-article__topic-tag-link">
+            International Finance
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/foreign-exchange-report-great " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Make the Foreign Exchange Report Great Again</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/ForeignExchange.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">The U.S. Department of the Treasury should transform its foreign currency report&nbsp;so it can be used as a tool to combat currency manipulation.&nbsp;This would be an important step toward a more balanced global economy with fewer persistent deficits and surpluses.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Policy Innovation Memorandum</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/brad-w-setser" class="card-article__authors-link">Brad W. Setser</a></span>
+                    
+            
+                          <span class="card-article__date"> June 17, 2019</span>
+            
+                                                                                                                                <a href="/programs/greenberg-center-geoeconomic-studies" class="card-article__series">
+                    Greenberg Center for Geoeconomic Studies
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/energy-and-environment" class="card-article__topic-tag-link">
+            Energy and Environment
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/climate-risk-impacts-energy-system " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Climate Risk Impacts on the Energy System</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/RTX3Q0H1.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Insights From a CFR Workshop
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                    
+            
+                          <span class="card-article__date"> June 14, 2019</span>
+            
+                                                                                                                                <a href="/programs/energy-security-and-climate-change-program" class="card-article__series">
+                    Energy Security and Climate Change Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/americas/venezuela" class="card-article__topic-tag-link">
+            Venezuela
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/stabilizing-venezuela " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Stabilizing Venezuela: Scenarios and Options</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/CPA_Venezuela.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">The Venezuelan crisis threatens the interests and security of the United States and Venezuela's neighbors. The United States and regional partners need&nbsp;to provide humanitarian relief and security assistance and accelerate change to a post-Maduro democracy.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Contingency Planning Memorandum</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/frank-o-mora" class="card-article__authors-link"> Frank O. Mora</a></span>
+                    
+            
+                          <span class="card-article__date"> June 14, 2019</span>
+            
+                                                                                                                                <a href="/programs/center-preventive-action" class="card-article__series">
+                    Center for Preventive Action
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/diplomacy-and-international-institutions/global-governance" class="card-article__topic-tag-link">
+            Global Governance
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/council-councils-eighth-annual-conference " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Council of Councils Eighth Annual Conference</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/06/CoC_Conference.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Sessions were held on global change and world order, managing the global risk of nuclear weapons, the challenges of rapid urbanization, the future of freedom, and managing the conflict in Yemen.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/bio/council-councils" class="card-article__authors-link">The Council of Councils</a></span>
+                    
+            
+                          <span class="card-article__date"> June 14, 2019</span>
+            
+                                                                                                                                <a href="/programs/international-institutions-and-global-governance-program" class="card-article__series">
+                    International Institutions and Global Governance Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/us-foreign-policy" class="card-article__topic-tag-link">
+            U.S. Foreign Policy
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/book/sovereignty-wars " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">The Sovereignty Wars</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/Soverignty%20Wars%20Paperback%20Cover%20black230948.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/Soverignty%20Wars%20Paperback%20Cover%20black230948.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/book_cover_image/Soverignty%20Wars%20Paperback%20Cover%20black230948.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/Soverignty%20Wars%20Paperback%20Cover%20black230948.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/Soverignty%20Wars%20Paperback%20Cover%20black230948.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Stewart Patrick argues that the United States can protect its sovereignty while advancing American interests in a global age. He clarifies what is at stake in the sovereignty debate, arguing that the nation must make "sovereignty bargains" to achieve its aims in a complex world.</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Book</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/stewart-m-patrick" class="card-article__authors-link">Stewart M. Patrick</a></span>
+                    
+            
+                          <span class="card-article__date"> May 29, 2019</span>
+            
+                                                                                                                                <a href="/programs/international-institutions-and-global-governance-program" class="card-article__series">
+                    International Institutions and Global Governance Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/defense-and-security/terrorism-and-counterterrorism" class="card-article__topic-tag-link">
+            Terrorism and Counterterrorism
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/women-and-terrorism " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Women and Terrorism</p>
+                          <div class="card-article__image">
+
+                
+                                                    <div class="card-article__image-cover" style="background-image: url(//cdn.cfr.org/sites/default/files/styles/card_landscape_xl/public/image/2019/05/CFR_WomenandTerrorism_WFP_05132019_CMYK%20final_front_blackborder%20take%20237492384.jpg)"></div>
+                              </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">U.S. policymakers overlook the roles that women play in violent extremism—including as perpetrators, mitigators, and victims—and rarely enlist their participation in efforts to combat radicalization. This omission puts the United States at a disadvantage.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/jamille-bigio" class="card-article__authors-link">Jamille Bigio</a> and <a href="/expert/rachel-vogelstein" class="card-article__authors-link">Rachel B. Vogelstein</a></span>
+                    
+            
+                          <span class="card-article__date"> May 20, 2019</span>
+            
+                                                                                                                                <a href="/programs/women-and-foreign-policy-program" class="card-article__series">
+                    Women and Foreign Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/us-foreign-policy" class="card-article__topic-tag-link">
+            U.S. Foreign Policy
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/report/trumps-foreign-policies-are-better-they-seem " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Trump's Foreign Policies Are Better Than They Seem</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/image/2019/04/cfr_csr_TrumpsForeignPolicy_03292019_CMYK_front_blackborder%20take%202.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/image/2019/04/cfr_csr_TrumpsForeignPolicy_03292019_CMYK_front_blackborder%20take%202.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/image/2019/04/cfr_csr_TrumpsForeignPolicy_03292019_CMYK_front_blackborder%20take%202.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/image/2019/04/cfr_csr_TrumpsForeignPolicy_03292019_CMYK_front_blackborder%20take%202.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/image/2019/04/cfr_csr_TrumpsForeignPolicy_03292019_CMYK_front_blackborder%20take%202.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">President Donald J. Trump’s actions have often been rash, ignorant, and chaotic. Yet some of his individual foreign policies are substantially better than his opponents assert.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Council Special Report</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/robert-d-blackwill" class="card-article__authors-link">Robert D. Blackwill</a></span>
+                    
+            
+                          <span class="card-article__date"> April 15, 2019</span>
+            
+                                                                                                                                <a href="/programs/us-foreign-policy-program" class="card-article__series">
+                    U.S. Foreign Policy Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/asia/japan" class="card-article__topic-tag-link">
+            Japan
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/book/japan-rearmed " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">Japan Rearmed</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/Japan%20Rearmed%20book%20cover_blackborder2.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/Japan%20Rearmed%20book%20cover_blackborder2.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/book_cover_image/Japan%20Rearmed%20book%20cover_blackborder2.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/Japan%20Rearmed%20book%20cover_blackborder2.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/Japan%20Rearmed%20book%20cover_blackborder2.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">Japan’s United States–imposed postwar constitution renounced the use of offensive military force, but, Sheila A. Smith shows, a nuclear North Korea and an increasingly assertive China have the Japanese rethinking that commitment—and their reliance on U.S. security.
+</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Book</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/sheila-smith" class="card-article__authors-link">Sheila A. Smith</a></span>
+                    
+            
+                          <span class="card-article__date"> April 8, 2019</span>
+            
+                                                                                                                                <a href="/programs/asia-program" class="card-article__series">
+                    Asia Program
+                </a>
+                    </p>
+    </div>
+</section>
+</li>
+          <li class="landing-cards-grid__list-item">
+
+  
+
+<section class="card-article card-article-book-report card-article--with-thumbnail">
+    <div class="card-article__container">
+      
+              <p class="card-article__topic-tag">
+                    <a href="/us-foreign-policy" class="card-article__topic-tag-link">
+            U.S. Foreign Policy
+          </a>
+                  </p>
+      
+      
+      <div class="card-article__link-outer-wrapper">
+                
+        
+                          <a href="/book/road-not-taken " class="card-article__link">
+        
+        
+          <div class="card-article__info">
+            <p class="card-article__title clamp-js" data-clamp-lines="4">The Road Not Taken</p>
+                          <div class="card-article__image">
+
+                
+                                                                              <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/THE%20ROAD%20NOT%20TAKEN%20PULITZER%5B10%5D.jpg 1x" media="all and (min-width: 1280px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_l/public/book_cover_image/THE%20ROAD%20NOT%20TAKEN%20PULITZER%5B10%5D.jpg 1x" media="all and (max-width: 1279px) and (min-width: 1024px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_m/public/book_cover_image/THE%20ROAD%20NOT%20TAKEN%20PULITZER%5B10%5D.jpg 1x" media="all and (max-width: 1023px) and (min-width: 750px)" type="image/jpeg"/>
+              <source srcset="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/THE%20ROAD%20NOT%20TAKEN%20PULITZER%5B10%5D.jpg 1x" media="all and (max-width: 749px)" type="image/jpeg"/>
+            <!--[if IE 9]></video><![endif]-->
+            <img src="//cdn.cfr.org/sites/default/files/styles/book_large_s/public/book_cover_image/THE%20ROAD%20NOT%20TAKEN%20PULITZER%5B10%5D.jpg" alt="" typeof="foaf:Image" />
+
+  </picture>
+
+                                                  </div>
+                          </div>
+          </a>
+      </div>
+
+                    <div class="card-article__dek clamp-js" data-clamp-lines="4">In chronicling the adventurous life of legendary CIA operative Edward Lansdale, <em>The Road Not Taken </em>definitively reframes our understanding of the Vietnam War.</div>
+      
+      <p class="card-article__metadata">
+        
+                  <span class="card-article__publication-type">Book</span>
+                  
+                      <span class="card-article__authors">by <a href="/expert/max-boot" class="card-article__authors-link">Max Boot</a></span>
+                    
+            
+                          <span class="card-article__date"> April 2, 2019</span>
+            
+                                                                                                                        </p>
+    </div>
+</section>
+</li>
+    
+  </ul>
+
+</div>
+</div>
+
+    
+<ul class="js-pager__items pager" data-drupal-views-infinite-scroll-pager="automatic">
+  <li class="pager__item">
+    <a class="button" href="/publications?topics=All&amp;regions=All&amp;type=All&amp;sort_by=field_book_release_date_value&amp;sort_order=DESC&amp;page=1" title="Go to next page" rel="next">Load More</a>
+  </li>
+</ul>
+
+
+  
+  
+
+  
+  
+</div>
+</div>
+
+  </div>
+</div>
+      
+  </div>
+
+
+                                    </div>
+                  </div>
+      
+                    
+
+<div class="chapters">
+  <div class="chapters__btn-toggle">
+          <svg viewBox="0 0 20 11" xmlns="http://www.w3.org/2000/svg" class="icon icon-up-arrow">
+  <path d="M1 10l9.09-8.333L19.183 10" class="icon-stroke" fill="none"/>
+</svg>
+  
+  </div>
+  <div class="chapters__nav">
+  </div>
+</div>
+          </div>
+  </div>
+</article>
+
+  </div>
+</div>
+
+    </div>
+  </main>
+
+    
+<div id="main-footer-anchor"></div>
+<footer class="main-footer">
+  
+
+                        
+<a href="/" class="main-footer__logo-btn">
+        <svg viewBox="0 0 125 60" class="main-footer__logo-signature icon-logo-signature" xmlns="http://www.w3.org/2000/svg">
+    <title>Logo</title>
+    <path d="M106.909 13.178c-.502.92-1.081 1.458-1.854 1.458-.713 0-1.01-.522-.975-1.458.062-1.772 1.163-4.833 2.824-4.833.6 0 .999.416.97 1.371-.026.912-.386 2.406-.965 3.462m-.055-5.377c-2.64 0-4.56 2.264-4.63 4.755-.04 1.428.743 2.647 2.703 2.647 3.06 0 4.676-2.7 4.73-4.714.053-1.57-.944-2.688-2.803-2.688m17.484 3.789c0-.612-.316-1.01-.782-1.01-.404 0-.679.3-.679.677 0 .483.45.613.45 1.239-.001.259-.103.519-.32.765-.31.297-.748.513-2.042.513h-3.142c-.364 0-.465-.154-.313-.587.468-1.341 1.109-2.92 1.241-3.587.176-.876-.203-1.687-1.315-1.687-1.749 0-2.89 1.524-4.426 4.42h-.089s1.115-2.606 1.115-3.464c0-.61-.367-.946-1.026-.946-1.009 0-2.041 1.05-2.486 1.63l.31.302c.203-.255.51-.557.737-.733.402-.312.808-.263.687.407-.155.866-1.328 3.959-1.961 5.535h1.827c1.875-3.756 3.251-6.174 4.345-6.174.317 0 .483.196.483.53 0 .675-.985 2.959-1.389 4.312-.238.8-.183 1.332.52 1.332h3.498c1.451 0 2.618-.677 3.122-1.04 1.003-.68 1.635-1.614 1.635-2.433M10.751 24.923v-2.138H2.058v14.48h2.448V30.94h5.657v-2.143H4.506v-3.874zm71.256-.185c-1.474-1.462-3.291-2.302-5.748-2.302-4.258 0-7.677 3.079-7.676 7.66-.001 4.576 3.074 7.48 7.453 7.48h.014c4.075 0 7.1-2.548 7.115-6.755v-.448h-7.093v2.06h4.397c-.473 2.002-2.291 2.938-4.271 2.938-3.055 0-5.025-2.035-5.028-5.347.008-3.065 2.025-5.4 4.976-5.405 2.104 0 3.426.977 4.223 1.776l1.638-1.657zM4.49 51.483v-4.486h2.005c2.614 0 2.919 1.203 2.919 2.105 0 .888-.377 2.381-2.901 2.381H4.49zm3.519 1.851s-.018-.018.112-.034c2.109-.247 3.73-1.928 3.73-4.252 0-2.538-1.893-4.18-4.818-4.18H2.058v14.535H4.49v-6.019h.592l4.895 6.02h3.09l-5.06-6.07zm9.314-8.445v14.533h9.205v-2.114h-6.68v-4.337h5.546v-2.108h-5.546v-3.866h6.21v-2.108zm13.937-.022v14.535h8.865v-2.094h-6.343v-12.44zm24.952 0v2.13h4.494v12.407h2.438V46.995h4.49v-2.13zM71.44 59.402h2.529V44.866H71.44zm35.288-5.305l-9.756-9.776v15.082h2.43v-9.167c.423.418 9.757 9.764 9.757 9.764V44.867h-2.431v9.23zm11.854-3.111c-1.794-.892-2.6-1.555-2.6-2.6 0-1.58 1.623-1.775 2.107-1.775 1.029 0 1.988.344 2.834 1.133l1.234-1.761c-1.366-1.073-2.622-1.393-4.068-1.393-2.648 0-4.5 1.61-4.5 3.924 0 2.215 1.455 3.317 3.917 4.575 1.699.867 2.557 1.632 2.557 2.654 0 1.142-.993 1.819-2.301 1.819-1.38 0-2.47-.465-3.567-1.488l-1.375 1.721c1.582 1.46 3.24 1.87 4.763 1.87 3.286 0 4.942-1.864 4.942-4.14 0-2.331-1.765-3.454-3.943-4.54M12.08 11.201c-1.172 1.342-2.672 2.016-4.33 2.016-2.959 0-5.17-2.004-5.17-5.403 0-3.105 2.076-5.258 4.862-5.258 1.55 0 2.882.51 4.066 1.695l1.618-1.64C11.686 1.083 9.828.363 7.47.363 3.244.363 0 3.586 0 7.884c0 4.511 3.088 7.523 7.433 7.523 2.561 0 4.584-.862 6.046-2.523l-1.399-1.683zm66.172.03c-1.172 1.341-2.547 1.975-4.422 1.975-3.084 0-5.17-2.004-5.17-5.402 0-3.104 2.084-5.267 4.87-5.267 1.55 0 2.883.51 4.066 1.695l1.6-1.619c-1.39-1.536-3.287-2.25-5.645-2.25-4.343 0-7.472 3.223-7.472 7.521 0 4.511 3 7.523 7.435 7.523 2.677 0 4.676-.822 6.137-2.483l-1.4-1.693zm-38.644 4.05c3.432 0 5.411-1.862 5.973-4.36.11-.496.165-1.217.165-1.834V.548H43.31v8.468c0 2.721-1.342 4.075-3.68 4.075-2.41 0-3.854-1.398-3.854-4.075V.548H33.34v8.54c0 .642.057 1.338.17 1.833.573 2.498 2.598 4.36 6.1 4.36m13.05-9.512c.425.419 9.83 9.91 9.83 9.91V.548h-2.372v9.365L50.294 0v15.082h2.366V5.769zm30.062 9.313h2.525V.548h-2.525zM90.25.548V15.08h8.942v-2.095h-6.41V.548zM22.66 2.403c-2.794 0-5.06 2.216-5.06 5.466s2.154 5.467 5.06 5.467c2.904 0 5.056-2.217 5.056-5.467 0-3.25-2.264-5.466-5.057-5.466m-7.613 5.464C15.042 3.503 18.316.25 22.66.25c4.344 0 7.614 3.254 7.613 7.618.001 4.362-3.136 7.617-7.613 7.617-4.478 0-7.617-3.255-7.613-7.617m5.94 16.692c-2.793 0-5.057 2.216-5.057 5.467 0 3.25 2.152 5.467 5.057 5.467 2.906 0 5.057-2.217 5.057-5.467 0-3.251-2.263-5.467-5.057-5.467m-7.613 5.465c-.005-4.365 3.269-7.62 7.613-7.62 4.345 0 7.616 3.255 7.614 7.62.002 4.363-3.137 7.617-7.614 7.617s-7.618-3.254-7.613-7.617m36.748.788h5.546v-2.108h-5.546v-3.866h6.208v-2.108h-8.734v14.534h9.205v-2.114h-6.679zm11.533 6.452h2.525V22.73h-2.525zm-26.489-7.92v-4.487h2.004c2.613 0 2.919 1.203 2.919 2.107 0 .887-.378 2.38-2.901 2.38h-2.022zm3.519 1.85s-.019-.017.111-.033c2.108-.247 3.73-1.928 3.73-4.252 0-2.538-1.894-4.182-4.818-4.182h-4.975v14.537h2.433v-6.018h.592l4.895 6.018h3.09l-5.058-6.07zm3.449 28.204h2.541l1.416-3.376h5.558l1.393 3.376h2.682l-6.774-15.49-6.816 15.49zm6.732-10.073l1.89 4.542h-3.789l1.9-4.542zm36.612-2.6c-2.792 0-5.056 2.216-5.056 5.466 0 3.251 2.153 5.468 5.056 5.468 2.907 0 5.06-2.217 5.06-5.468 0-3.25-2.264-5.466-5.06-5.466m-7.613 5.464c-.004-4.365 3.27-7.617 7.614-7.617 4.344 0 7.617 3.252 7.614 7.617.002 4.362-3.138 7.618-7.615 7.618s-7.617-3.256-7.613-7.618m11.558-24.238c.424.419 9.829 9.909 9.829 9.909V22.73h-2.37v9.366l-9.823-9.913v15.082h2.364v-9.313z" class="icon-fill" fill="none"/>
+</svg>
+  
+</a>
+
+<ul class="main-footer__menu">
+      <li class="main-footer__menu-item">
+      <a href="/about">About CFR</a>
+    </li>
+      <li class="main-footer__menu-item">
+      <a href="/think-tank">Think Tank</a>
+    </li>
+      <li class="main-footer__menu-item">
+      <a href="/support-cfr">Support CFR</a>
+    </li>
+      <li class="main-footer__menu-item">
+      <a href="/media">For Media</a>
+    </li>
+      <li class="main-footer__menu-item">
+      <a href="/career-opportunities">Careers</a>
+    </li>
+      <li class="main-footer__menu-item">
+      <a href="/contact-us">Contact Us</a>
+    </li>
+  </ul>
+
+
+
+
+<div class="main-footer__newsletter">
+  <div class="main-footer__newsletter-header">
+    <div class="main-footer__newsletter-icon">      <svg viewBox="0 0 48 17" class="icon icon-newsletter" xmlns="http://www.w3.org/2000/svg">
+    <title>Newsletter</title>
+    <path d="M46.694 1H24v14.625h22.694V1zm-1.639.756L35.221 9.07l-9.607-7.313h19.441zm.883 13.113H24.756V2.034l10.465 7.968 10.717-7.968v12.835zM17 1.833H1M17 8.5H5m12 6.667h-6" class="icon-stroke" fill="none"/>
+</svg>
+  </div>
+    <div class="main-footer__newsletter-text">
+      <span class="main-footer__newsletter-text-primary">Daily News Brief</span>
+      <span class="main-footer__newsletter-text-secondary">Sign up for a morning roundup of news and analysis from around the world.</span>
+    </div>
+  </div>
+  <form class="daily-news-brief-main-footer-form" data-newsletter-id="daily_news_brief_main-footer_form" autocomplete="off" data-drupal-selector="daily-news-brief-main-footer-form" action="/publications?topics=All&amp;regions=All&amp;type=All&amp;sort_by=field_book_release_date_value&amp;sort_order=DESC" method="post" id="daily-news-brief-main-footer-form" accept-charset="UTF-8">
+  <div class="main-footer__newsletter-email js-form-wrapper form-wrapper" data-drupal-selector="edit-subscribe" id="edit-subscribe"><input data-drupal-selector="edit-newsletter-name" type="hidden" name="newsletter_name" value="daily_news_brief" />
+<div id="daily_news_brief_main-footer_form" class="g-recaptcha newsletter-form__recaptcha"></div><input id="daily_news_brief_main-footer_form--recaptcha-id" data-drupal-selector="edit-recaptcha-id" type="hidden" name="recaptcha_id" value="" />
+<input data-drupal-selector="edit-newsletter-id" type="hidden" name="newsletter_id" value="daily_news_brief_main-footer_form" />
+<div class="hidden"><div class="js-form-item form-item js-form-type-textfield form-item-url js-form-item-url">
+      <label for="edit-url">Url</label>
+        <input data-drupal-selector="edit-url" type="text" id="edit-url" name="url" value="" size="60" maxlength="128" class="form-text" />
+
+        </div>
+</div><div class="js-form-item form-item js-form-type-email form-item-email-address js-form-item-email-address">
+      <label for="edit-email-address">Email Address</label>
+        <input class="main-footer__newsletter-email-input form-email" data-drupal-selector="edit-email-address" type="email" id="edit-email-address" name="email_address" value="" size="60" maxlength="254" />
+
+        </div>
+<input class="main-footer__newsletter-submitbtn button js-form-submit form-submit" data-drupal-selector="cfr-newsletter-signup-form-daily-news-brief-main-footer-form-submit" type="submit" id="cfr-newsletter-signup-form--daily-news-brief-main-footer-form--submit" name="op" value="Submit" />
+</div>
+<input autocomplete="off" data-drupal-selector="form-kxevad4kupdwvbfsryc1gge9zhe1lmyqpucksr2yau" type="hidden" name="form_build_id" value="form-_KxEVAD4kupdWvbFSrYc1gge9zhE1LMyQPUcksR2YaU" />
+<input data-drupal-selector="edit-daily-news-brief-main-footer-form" type="hidden" name="form_id" value="daily_news_brief_main-footer_form" />
+
+</form>
+
+  <div class="main-footer__newsletter-successmsg">
+    Thanks for signing up!       <svg viewBox="0 0 24 18" class="icon icon-check" xmlns="http://www.w3.org/2000/svg">
+    <title>Check</title>
+    <path d="M7.644 14.171L2 8.597l-2 1.88L7.644 18 24 1.88 22 0z" class="icon-fill" fill="none"/>
+</svg>
+  <br />
+    Check your Email Address.
+  </div>
+  <div class="main-footer__newsletter-signup-all">
+    <a href="/newsletters">Browse more CFR newsletters</a>
+  </div>
+</div>
+
+<div class="main-footer__share-kit-wrapper">
+            
+  <div class="share-kit  share-kit--icon-color-transparent-white share-kit--bg-color-white share-kit--small share-kit--theme-none"
+    data-share-anchor=""
+    data-share-query=""
+    data-share-name=""
+    data-share-description=""
+    data-share-caption=""
+    data-share-picture=""
+    data-share-type=""
+  >
+    <div class="share-kit__icons">
+                                    <a class="share-kit__hotspot share-kit__facebook" href="https://www.facebook.com/councilonforeignrelations" target="_blank">
+                    <svg viewBox="0 0 9 19" class="icon icon-facebook" xmlns="http://www.w3.org/2000/svg">
+    <title>Facebook</title>
+    <path d="M0 5.993h1.861V4.171c0-.801.021-2.04.6-2.807C3.071.552 3.91 0 5.35 0c2.347 0 3.336.336 3.336.336l-.465 2.777s-.776-.226-1.5-.226c-.723 0-1.371.26-1.371.99v2.116h2.967l-.206 2.71H5.35v9.42H1.86v-9.42H0v-2.71l4.203 4.532" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__twitter" href="https://twitter.com/CFR_org" target="_blank">
+                    <svg viewBox="0 0 19 15" class="icon icon-twitter" xmlns="http://www.w3.org/2000/svg">
+    <title>Twitter</title>
+    <path d="M18.686 1.744a7.36 7.36 0 0 1-2.121.585A3.723 3.723 0 0 0 18.189.272a7.404 7.404 0 0 1-2.345.903A3.678 3.678 0 0 0 13.148 0c-2.04 0-3.692 1.664-3.692 3.719 0 .291.031.574.095.846A10.46 10.46 0 0 1 1.939.68c-.319.55-.5 1.187-.5 1.868a3.72 3.72 0 0 0 1.643 3.095 3.634 3.634 0 0 1-1.672-.465c-.002.016-.002.032-.002.048a3.713 3.713 0 0 0 2.964 3.645 3.638 3.638 0 0 1-1.669.064 3.7 3.7 0 0 0 3.45 2.582 7.375 7.375 0 0 1-4.586 1.591c-.298 0-.593-.016-.88-.051a10.406 10.406 0 0 0 5.66 1.67c6.793 0 10.507-5.665 10.507-10.58 0-.16-.003-.32-.011-.48a7.514 7.514 0 0 0 1.843-1.924" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__youtube" href="https://www.youtube.com/user/cfr/featured" target="_blank">
+                    <svg viewBox="0 0 19 13" class="icon icon-youtube" xmlns="http://www.w3.org/2000/svg">
+    <title>YouTube</title>
+    <path d="M7.817 8.968V3.82L12.6 6.333 7.817 8.968zm10.595-6.631C18.069.955 17.426.423 16.242.23 15.559.13 12.282 0 9.68 0h.011c-2.6 0-5.878.13-6.56.23C1.946.424 1.303.956.96 2.338.846 2.8.686 5.346.686 6.317v.213c0 .97.16 3.516.275 3.98.343 1.382.986 1.914 2.17 2.106.683.101 3.96.23 6.561.23h-.011c2.6 0 5.878-.129 6.56-.23 1.185-.192 1.828-.724 2.17-2.106.116-.464.275-3.009.275-3.98v-.213c0-.971-.159-3.516-.274-3.98z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__instagram" href="https://www.instagram.com/cfr_org/" target="_blank">
+                    <svg viewBox="0 0 19 19" class="icon icon-instagram" xmlns="http://www.w3.org/2000/svg">
+    <title>Instagram</title>
+    <path d="M9.703 5.495c-1.996 0-3.615 1.58-3.615 3.527 0 1.948 1.619 3.527 3.615 3.527 1.997 0 3.616-1.58 3.616-3.527 0-1.948-1.619-3.527-3.616-3.527zm6.949 2.169h-1.584c.15.493.23 1.014.23 1.555 0 3.014-2.505 5.458-5.595 5.458S4.11 12.233 4.11 9.219c0-.54.08-1.062.23-1.555H2.686v7.655c0 .396.322.72.716.72h12.534a.72.72 0 0 0 .716-.72V7.664zm-2.853-5.65a.815.815 0 0 0-.81.815v1.953c0 .449.364.816.81.816h2.034c.446 0 .81-.367.81-.816V2.83a.815.815 0 0 0-.81-.816H13.8zM2.997 0h13.379c1.27 0 2.31 1.047 2.31 2.326v13.47c0 1.28-1.04 2.326-2.31 2.326H2.996a2.325 2.325 0 0 1-2.31-2.326V2.326C.686 1.046 1.726 0 2.996 0z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                                                      <a class="share-kit__hotspot share-kit__linkedin" href="https://www.linkedin.com/company/council-on-foreign-relations" target="_blank">
+                    <svg viewBox="0 0 19 18" class="icon icon-linkedin" xmlns="http://www.w3.org/2000/svg">
+    <title>LinkedIn</title>
+    <path d="M18.447 17.014h-3.799c0-.163.008-4.169-.007-6.075a4.948 4.948 0 0 0-.151-1.214c-.366-1.386-1.929-1.876-3.037-.962-.536.442-.823 1.013-.822 1.727.007 2.038.003 4.485.003 6.524 0 .144 0-.175 0 0h-3.77V5.599h3.752v1.552c.122-.135.19-.199.244-.274.98-1.347 2.348-1.718 3.906-1.52 1.548.197 2.66 1.037 3.213 2.52.227.61.316 1.272.468 1.91v7.227zM.941 17.013h3.75V5.603H.941v11.41zM2.802 3.99c-.97-.001-1.764-.533-2.018-1.353C.523 1.795.794.887 1.5.422 2.286-.1 3.135-.133 3.969.298c.728.376 1.016 1.04.986 1.842-.04 1.09-.935 1.852-2.153 1.85z" class="icon-fill" fill="none"/>
+</svg>
+  
+            </a>
+                            </div>
+
+      </div>
+
+</div>
+<div class="main-footer__fineprint">
+    <span class="main-footer__fineprint-line">©2020 Council on Foreign Relations.</span>
+    <span class="main-footer__fineprint-line">All rights reserved.</span>
+    <span class="main-footer__fineprint-line">
+      <a href="/privacy-policy" class="main-footer__fineprint-link">Privacy Policy</a> and
+      <a href="/terms-use" class="main-footer__fineprint-link">Terms of Use</a>.
+    </span>
+</div>
+
+</footer>
+
+  
+</div>
+  </div>
+
+    
+
+        <script id="share-kit--template" type="text/template">
+                                  
+  <div class="share-kit  share-kit--icon-color-white share-kit--bg-color-white  share-kit--theme-none"
+    data-share-anchor=""
+    data-share-query=""
+    data-share-name=""
+    data-share-description=""
+    data-share-caption=""
+    data-share-picture=""
+    data-share-type=""
+  >
+    <div class="share-kit__icons">
+                        <button class="share-kit__hotspot share-kit__facebook" onclick="CFR.Share.facebook(this)">
+                  <svg viewBox="0 0 9 19" class="icon icon-facebook" xmlns="http://www.w3.org/2000/svg">
+    <title>Facebook</title>
+    <path d="M0 5.993h1.861V4.171c0-.801.021-2.04.6-2.807C3.071.552 3.91 0 5.35 0c2.347 0 3.336.336 3.336.336l-.465 2.777s-.776-.226-1.5-.226c-.723 0-1.371.26-1.371.99v2.116h2.967l-.206 2.71H5.35v9.42H1.86v-9.42H0v-2.71l4.203 4.532" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__twitter" onclick="CFR.Share.twitter(this)">
+                  <svg viewBox="0 0 19 15" class="icon icon-twitter" xmlns="http://www.w3.org/2000/svg">
+    <title>Twitter</title>
+    <path d="M18.686 1.744a7.36 7.36 0 0 1-2.121.585A3.723 3.723 0 0 0 18.189.272a7.404 7.404 0 0 1-2.345.903A3.678 3.678 0 0 0 13.148 0c-2.04 0-3.692 1.664-3.692 3.719 0 .291.031.574.095.846A10.46 10.46 0 0 1 1.939.68c-.319.55-.5 1.187-.5 1.868a3.72 3.72 0 0 0 1.643 3.095 3.634 3.634 0 0 1-1.672-.465c-.002.016-.002.032-.002.048a3.713 3.713 0 0 0 2.964 3.645 3.638 3.638 0 0 1-1.669.064 3.7 3.7 0 0 0 3.45 2.582 7.375 7.375 0 0 1-4.586 1.591c-.298 0-.593-.016-.88-.051a10.406 10.406 0 0 0 5.66 1.67c6.793 0 10.507-5.665 10.507-10.58 0-.16-.003-.32-.011-.48a7.514 7.514 0 0 0 1.843-1.924" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__linkedin" onclick="CFR.Share.linkedin(this)">
+                  <svg viewBox="0 0 19 18" class="icon icon-linkedin" xmlns="http://www.w3.org/2000/svg">
+    <title>LinkedIn</title>
+    <path d="M18.447 17.014h-3.799c0-.163.008-4.169-.007-6.075a4.948 4.948 0 0 0-.151-1.214c-.366-1.386-1.929-1.876-3.037-.962-.536.442-.823 1.013-.822 1.727.007 2.038.003 4.485.003 6.524 0 .144 0-.175 0 0h-3.77V5.599h3.752v1.552c.122-.135.19-.199.244-.274.98-1.347 2.348-1.718 3.906-1.52 1.548.197 2.66 1.037 3.213 2.52.227.61.316 1.272.468 1.91v7.227zM.941 17.013h3.75V5.603H.941v11.41zM2.802 3.99c-.97-.001-1.764-.533-2.018-1.353C.523 1.795.794.887 1.5.422 2.286-.1 3.135-.133 3.969.298c.728.376 1.016 1.04.986 1.842-.04 1.09-.935 1.852-2.153 1.85z" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                                <button class="share-kit__hotspot share-kit__e-mail-filled" onclick="CFR.Share.email(this)">
+                  <svg viewBox="0 0 23 14" class="icon icon-e-mail-filled" xmlns="http://www.w3.org/2000/svg">
+    <title>Email</title>
+    <path d="M.915 0l10.258 7.808L21.673 0H.915zm10.258 8.804L0 .297V14h22.615V.297L11.173 8.804z" class="icon-fill" fill="none"/>
+</svg>
+  
+          </button>
+                  </div>
+
+      </div>
+
+    </script>
+  </div>
+
+
+    <script src="https://ak.sail-horizon.com/spm/spm.v1.min.js"></script>
+    <script>Sailthru.init({ customerId: '16a6a423ea139031de8812f22132ba91' });</script>
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/64","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","currentQuery":{"regions":"All","sort_by":"field_book_release_date_value","sort_order":"DESC","topics":"All","type":"All"}},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"cfr_chartbeat\/cfr-chartbeat-body,cfr_chartbeat\/cfr-chartbeat-header,cfr_homepage_sections\/advanced_autocomplete,cfr_theme\/alert,cfr_theme\/buttons,cfr_theme\/footer,cfr_theme\/global,cfr_theme\/header-contextual,cfr_theme\/member-login-old,cfr_theme\/navigation,cfr_theme\/newsletter-form,cfr_theme\/newsletter-form-common,core\/drupal.autocomplete,core\/html5shiv,datalayer\/behaviors,paragraphs\/drupal.paragraphs.unpublished,search_autocomplete\/theme.minimal.css,statistics\/drupal.statistics,system\/base,views\/views.ajax,views\/views.module,views_infinite_scroll\/views-infinite-scroll","theme":"cfr_theme","theme_token":null},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true,"\/publications?ajax_form=1":true,"\/publications":true},"dataLayer":{"defaultLang":"en","languages":{"en":{"id":"en","name":"English","direction":"ltr","weight":0}}},"search_autocomplete":{"header_search":{"source":"https:\/\/www.cfr.org\/callback\/search_autocomplete","selector":"input.search-overlay__search-bar","minChars":3,"maxSuggestions":10,"autoSubmit":true,"autoRedirect":true,"theme":"minimal","filters":["keyword"],"noResult":{"group":{"group_id":"no_results"},"label":"Search CFR.org for \u003Cstrong\u003E[search-phrase]\u003C\/strong\u003E.","value":"[search-phrase]"},"moreResults":{"group":{"group_id":"more_results"},"label":"View all results for \u003Cstrong\u003E[search-phrase]\u003C\/strong\u003E.","value":"[search-phrase]"}},"keyword_search":{"source":"https:\/\/www.cfr.org\/callback\/search_autocomplete","selector":"#views-exposed-form-site-search-page-1 input.form-text","minChars":3,"maxSuggestions":10,"autoSubmit":true,"autoRedirect":true,"theme":"minimal","filters":["keyword"],"noResult":{"group":{"group_id":"no_results"},"label":"Search CFR.org for \u003Cstrong\u003E[search-phrase]\u003C\/strong\u003E.","value":"[search-phrase]"},"moreResults":{"group":{"group_id":"more_results"},"label":"View all results for \u003Cstrong\u003E[search-phrase]\u003C\/strong\u003E.","value":"[search-phrase]"}}},"smartIp":"{\u0022location\u0022:{\u0022source\u0022:\u0022smart_ip\u0022,\u0022ipAddress\u0022:\u0022198.143.33.11\u0022,\u0022ipVersion\u0022:4,\u0022timestamp\u0022:1578358289,\u0022originalData\u0022:{\u0022continent\u0022:{\u0022code\u0022:\u0022NA\u0022,\u0022geoname_id\u0022:6255149,\u0022names\u0022:{\u0022de\u0022:\u0022Nordamerika\u0022,\u0022en\u0022:\u0022North America\u0022,\u0022es\u0022:\u0022Norteam\\u00e9rica\u0022,\u0022fr\u0022:\u0022Am\\u00e9rique du Nord\u0022,\u0022ja\u0022:\u0022\\u5317\\u30a2\\u30e1\\u30ea\\u30ab\u0022,\u0022pt-BR\u0022:\u0022Am\\u00e9rica do Norte\u0022,\u0022ru\u0022:\u0022\\u0421\\u0435\\u0432\\u0435\\u0440\\u043d\\u0430\\u044f \\u0410\\u043c\\u0435\\u0440\\u0438\\u043a\\u0430\u0022,\u0022zh-CN\u0022:\u0022\\u5317\\u7f8e\\u6d32\u0022}},\u0022country\u0022:{\u0022geoname_id\u0022:6252001,\u0022iso_code\u0022:\u0022US\u0022,\u0022names\u0022:{\u0022de\u0022:\u0022USA\u0022,\u0022en\u0022:\u0022United States\u0022,\u0022es\u0022:\u0022Estados Unidos\u0022,\u0022fr\u0022:\u0022\\u00c9tats-Unis\u0022,\u0022ja\u0022:\u0022\\u30a2\\u30e1\\u30ea\\u30ab\\u5408\\u8846\\u56fd\u0022,\u0022pt-BR\u0022:\u0022Estados Unidos\u0022,\u0022ru\u0022:\u0022\\u0421\\u0428\\u0410\u0022,\u0022zh-CN\u0022:\u0022\\u7f8e\\u56fd\u0022}},\u0022registered_country\u0022:{\u0022geoname_id\u0022:6252001,\u0022iso_code\u0022:\u0022US\u0022,\u0022names\u0022:{\u0022de\u0022:\u0022USA\u0022,\u0022en\u0022:\u0022United States\u0022,\u0022es\u0022:\u0022Estados Unidos\u0022,\u0022fr\u0022:\u0022\\u00c9tats-Unis\u0022,\u0022ja\u0022:\u0022\\u30a2\\u30e1\\u30ea\\u30ab\\u5408\\u8846\\u56fd\u0022,\u0022pt-BR\u0022:\u0022Estados Unidos\u0022,\u0022ru\u0022:\u0022\\u0421\\u0428\\u0410\u0022,\u0022zh-CN\u0022:\u0022\\u7f8e\\u56fd\u0022}}},\u0022country\u0022:\u0022United States\u0022,\u0022countryCode\u0022:\u0022US\u0022,\u0022region\u0022:\u0022\u0022,\u0022regionCode\u0022:\u0022\u0022,\u0022city\u0022:\u0022\u0022,\u0022zip\u0022:\u0022\u0022,\u0022latitude\u0022:\u0022\u0022,\u0022longitude\u0022:\u0022\u0022,\u0022timeZone\u0022:\u0022\u0022,\u0022isEuCountry\u0022:false,\u0022isGdprCountry\u0022:false}}","smartIpSrc":{"smartIp":"smart_ip","geocodedSmartIp":"geocoded_smart_ip","w3c":"w3c"},"cfrNewsletter":{"recaptcha":{"siteKey":"6LdVm2YUAAAAALLTS2XVQD5O47VtNJIKQTsrqP9t"}},"ajax":{"cfr-newsletter-signup-form--daily-news-brief-main-footer-form--submit":{"wrapper":"daily-news-brief-main-footer-form","callback":[{},"ajaxSubmit"],"event":"click","prevent":"mousedown","url":"\/publications?ajax_form=1","dialogType":"ajax","submit":{"_triggering_element_name":"op","_triggering_element_value":"Submit"}}},"statistics":{"data":{"nid":"64"},"url":"\/core\/modules\/statistics\/statistics.php"},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:c0a4b58869048cad27e4eaf31b914ed522d10d1ed0faf3b2d65b336ed18045b2":{"view_name":"filtered_landing_blocks","view_display_id":"block_publications","view_args":"","view_path":"\/node\/64","view_base_path":null,"view_dom_id":"c0a4b58869048cad27e4eaf31b914ed522d10d1ed0faf3b2d65b336ed18045b2","pager_element":0,"pager_query_method":"GET"}}},"user":{"uid":0,"permissionsHash":"c32eb994a632824badc265253fe38d613be722a5f45fef6d46eacb2f22cbd1c0"}}</script>
+<script src="/sites/default/files/js/js_GGdSnbgCxr9k65qdG7940o44uLJ4RR56F3V_UVG_Fkc.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"dd28942087","applicationID":"342008597","transactionName":"Z1ZUNRNUWUACVBJeCl4cdwIVXFhdTEcHUABvUFcCCVA=","queueTime":0,"applicationTime":20,"atts":"SxFXQ1tOSk4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
