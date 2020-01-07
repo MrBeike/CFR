@@ -16,6 +16,13 @@ class CFRMonitor():
     def __init__(self):
         pass
 
+    # TODO
+    def gui(self):
+        '''
+        简单GUI
+        '''
+        pass 
+
     def getPage(self,page):
         '''
         GET指定页面
@@ -66,7 +73,7 @@ class CFRMonitor():
 
     def newsParser(self,content):
         '''
-        通过BeautifulSoup解析页面内容，获取文章相关信息
+        通过BeautifulSoup解析页面内容,获取文章相关信息
         param:content 页面原始内容
         return:article_infos  包含所有文章信息的列表,单个文章信息用字典收纳   [{...},{...},...]
         '''
@@ -99,3 +106,14 @@ class CFRMonitor():
                             'dayoff': aritcle_dayoff
                             }
             article_infos.append(article_info)
+        return article_infos
+
+    # TODO
+    def notify(self,article_infos,keyword,dayoff):
+        '''
+        筛选最近几天的文章,并弹窗提示
+        param:article_infos 收集好的文章信息
+        param:keyword keyword筛选结果
+        param:dayoff dayoff筛选结果
+        ''' 
+        pass
