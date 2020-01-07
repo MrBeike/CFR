@@ -31,7 +31,7 @@ class CFRMonitor():
          # 网址
         self.url = 'https://www.cfr.org/publications'
         self.regions = 'All'
-        self.page = '1'
+        self.page = '0'
 
     def getPage(self):
         '''
@@ -72,11 +72,14 @@ class CFRMonitor():
         cardSoup = soup.findAll(name='section', attrs={'class': 'card-article'})
         # 初始化容器
         article_infos = []
+        url_prefix = 'https://www.cfr.org'
+        
         #遍历本页所有文章
         for item in cardSoup:
             article_info = {}
             article_topic = item.find(name='p', class_='card-article__topic-tag').text.strip()
             article_link = item.find(name='a', class_='card-article__link')['href'].strip()
+            article_link = url_prefix + article_link
             article_type = item.find(name='span', class_='card-article__publication-type').text.strip()
             # 可行，但是存在部分文章没有具体作者，且此项意义不大，暂时抛弃。
             # article_authors =item.find(name='span',class_='card-article__authors').get_text()
@@ -108,13 +111,10 @@ class CFRMonitor():
         for article_info in article_infos:
             if article_info['dayoff'] <= dayoff:
                 dayoff_notify.append(article_info)
-            elif keyword in (article_info['title'] or article_info['topic']):
-                keyword_notify.append(article_info)
-            else:
-                continue
+                if keyword in (article_info['title'] or article_info['topic']):
+                    keyword_notify.append(article_info)
         notify_tuple = (dayoff_notify,keyword_notify)
         return notify_tuple
-
 
     # def notifyGui(self,notify_tuple):
     #     '''
@@ -155,6 +155,6 @@ if __name__ == '__main__':
     m = CFRMonitor()
     content = m.getPage()
     article_infos = m.newsParser(content)
-    notify_tuple = m.notify(article_infos,'How',400)
+    notify_tuple = m.notify(article_infos,'Conflicts',400)
     resultPage = m.resultPage(notify_tuple)
     webbrowser.open('resultpage.html',0,False)
