@@ -3,6 +3,7 @@
 import time
 import requests
 import PySimpleGUI as sg
+import configparser
 import webbrowser
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -14,7 +15,10 @@ Task:
 关于贸易方面的报告	https://www.cfr.org/publications?topics=All&regions=All&field_publication_type_target_id=All&sort_by=field_book_release_date_value&sort_order=DESC	
 关于亚洲方面的报告	https://www.cfr.org/publications?topics=All&regions=115&field_publication_type_target_id=All&sort_by=field_book_release_date_value&sort_order=DESC
 '''
-
+#TODO 
+# configparser读取ini文件
+# config(self) 写入ini文件
+# 信息有效期dayoff？小时？
 class CFRMonitor():
     def __init__(self):
         # 代理
@@ -73,7 +77,6 @@ class CFRMonitor():
         # 初始化容器
         article_infos = []
         url_prefix = 'https://www.cfr.org'
-        
         #遍历本页所有文章
         for item in cardSoup:
             article_info = {}
@@ -116,25 +119,12 @@ class CFRMonitor():
         notify_tuple = (dayoff_notify,keyword_notify)
         return notify_tuple
 
-    # def notifyGui(self,notify_tuple):
-    #     '''
-    #     简单提示GUI
-    #     '''
-    #     dayoff_notify,keyword_notify = notify_tuple
-    #     dayoff_notify_num = len(dayoff_notify)
-    #     keyword_notify_num = len(keyword_notify)
-    #     total_num = dayoff_notify_num + keyword_notify_num
-    #     layout = [
-    #         [sg.Text('获取到符合条件的信息{0}条,其中符合时间条件{1}条,符合关键词条件{2}条。'.format(total_num,dayoff_notify_num,keyword_notify_num), size=(40, 1), font=("宋体", 13))],
-    #         [sg.Submit(button_text='查看详情',key='more'), sg.Cancel(button_text='退出')]
-    #     ]
-    #     window = sg.Window('工作簿汇总工具', default_element_size=(40, 3)).Layout(layout)
-    #     if not total_num:
-    #         button, values = window.Read()
-    #         if button == 'more':
-    #             webbrowser.open()
-
     def resultPage(self,notify_tuple):
+        '''
+        将筛选过的信息通过网页显示出来
+        param:notify_tuple 筛选过的信息集合
+        return：resultpage.html 写入html文件
+        '''
         dayoff_notify,keyword_notify= notify_tuple
         env = Environment(loader=FileSystemLoader('.'),autoescape=select_autoescape(['html', 'xml']))
         template = env.get_template('result.html')
@@ -142,15 +132,22 @@ class CFRMonitor():
         with open('resultpage.html','w',encoding='utf-8') as f:
             f.write(html)
 
-
+    #TODO 布局优化
     def config(self):
         layout = [
-        [sg.Input('轮训间隔时间',key='_time_',size=(40, 1), font=("宋体", 13))],
-        [sg.Submit(button_text='查看详情',key='more'), sg.Cancel(button_text='退出')]
+        [sg.Text('轮训间隔时间',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_time_',size=(10, 1), font=("宋体", 13)),sg.Text('分钟',size=(10, 1), font=("宋体", 13))],
+        [sg.Text('监测关键词',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_keyword_',size=(10, 1), font=("宋体", 13)),sg.Text('多个关键词用,隔开',size=(18, 1), font=("宋体", 13))],
+        [sg.Text('信息有效期',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_dayoff_',size=(10, 1), font=("宋体", 13)),sg.Text('小时',size=(10, 1), font=("宋体", 13))],
+        [sg.Submit(button_text='开始监测',key='_start_',size=(12, 1),font=("宋体", 13)), sg.Cancel(button_text='退出',key='_exit_',size=(12, 1),font=("宋体", 13))]
         ]
-        window = sg.Window('工作簿汇总工具', default_element_size=(40, 3)).Layout(layout)
+        window = sg.Window('CFR信息监测设置', default_element_size=(40, 3)).Layout(layout)
+        button,values = window.Read()
 
-#TODO keyword dont work
+    def configReader(self):
+        reader = configparser.ConfigParser()    
+
+
+#TODO keyword
 if __name__ == '__main__':
     m = CFRMonitor()
     content = m.getPage()
