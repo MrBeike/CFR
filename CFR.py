@@ -214,7 +214,6 @@ class CFRMonitor():
                 break
         config_window.Close()
 
-    #TODO 参数如何传递？
     def configReader(self):
         '''
         界面用于读取本地配置文件
@@ -272,7 +271,6 @@ class CFRMonitor():
         resultPage = self.resultPage(notify_tuple)
         showPage(resultPage)
 
-# TODO keyword
 if __name__ == '__main__':
     cfr = CFRMonitor()
     cfr.gui()
