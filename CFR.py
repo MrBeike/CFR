@@ -36,6 +36,8 @@ class CFRMonitor():
         self.url = 'https://www.cfr.org/publications'
         self.regions = 'All'
         self.page = '0'
+        self.configparser = configparser.ConfigParser()
+        self.config_file = 'config.ini'
 
     def getPage(self):
         '''
@@ -133,7 +135,7 @@ class CFRMonitor():
             f.write(html)
 
     #TODO 布局优化
-    def config(self):
+    def configWriter(self):
         '''
         利用PySimpleGUI构建简单的界面用于信息监测相关设置
         '''
@@ -141,13 +143,12 @@ class CFRMonitor():
         [sg.Text('轮训间隔时间',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_time_',size=(10, 1), font=("宋体", 13)),sg.Text('分钟',size=(10, 1), font=("宋体", 13))],
         [sg.Text('监测关键词',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_keyword_',size=(10, 1), font=("宋体", 13)),sg.Text('多个关键词用,隔开',size=(18, 1), font=("宋体", 13))],
         [sg.Text('信息有效期',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_dayoff_',size=(10, 1), font=("宋体", 13)),sg.Text('小时',size=(10, 1), font=("宋体", 13))],
-        [sg.Submit(button_text='开始监测',key='_start_',size=(12, 1),font=("宋体", 13)), sg.Cancel(button_text='退出',key='_exit_',size=(12, 1),font=("宋体", 13))]
+        [sg.Submit(button_text='写入配置文件',key='_write_',size=(12, 1),font=("宋体", 13)), sg.Cancel(button_text='退出',key='_exit_',size=(12, 1),font=("宋体", 13))]
         ]
         window = sg.Window('CFR信息监测设置', default_element_size=(40, 3)).Layout(layout)
         while True:
             button,values = window.Read()
-            if button == '_start_':
-                print(values)
+            if button == '_write_':
                 time = values['_time_'],
                 #pysimplegui Bug? 获取到的是一个tuple 形如(time,)
                 time= time[0]
@@ -156,27 +157,29 @@ class CFRMonitor():
                 if time:
                     if keyword:
                         if dayoff:
-                            value = {'time':time,
-                                    'keyword':keyword,
-                                    'dayoff':dayoff
-                                    }
+                            writer = self.configparser
+                            writer.add_section('setting')
+                            writer.set('setting','time',time)
+                            writer.set('setting','keyword',keyword)
+                            writer.set('setting','dayoff',dayoff)
+                            with open(self.config_file,encoding='utf-8') as f:
+                                writer.write(f)
                         else:
                             sg.popup('信息有效期未填写',font=("微软雅黑", 12), title='提示')
                     else:
                             sg.popup('监测关键词未填写',font=("微软雅黑", 12), title='提示')
                 else:
-                    sg.popup('监测时间未填写',font=("微软雅黑", 12), title='提示')
-                
+                    sg.popup('监测时间未填写',font=("微软雅黑", 12), title='提示')    
             elif button in (None,'_exit_'):
                 break
 
 
     def configReader(self):
-        parser = configparser.ConfigParser()
-        reader = parser.read(self.config_file)
+        reader = self.configparser.read(self.config_file,encoding='utf-8')
         time = reader.getint('setting','time')
         dayoff = reader.getint('setting','dayoff')
         keyword = reader.get('setting','keyword')
+        return 
 
 
 #TODO keyword
@@ -187,3 +190,5 @@ if __name__ == '__main__':
     notify_tuple = m.notify(article_infos,'Conflicts',400)
     resultPage = m.resultPage(notify_tuple)
     webbrowser.open('resultpage.html',0,False)
+
+
