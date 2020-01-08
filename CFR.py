@@ -141,34 +141,37 @@ class CFRMonitor():
                 '.'), autoescape=select_autoescape(['html', 'xml']))
             template = env.get_template('result.html')
             html = template.render(dayoff_notify=dayoff_notify,
-                                keyword_notify=keyword_notify)
+                                   keyword_notify=keyword_notify)
             with open('resultpage.html', 'w', encoding='utf-8') as f:
                 f.write(html)
-            return (len(dayoff_notify),len(keyword_notify))
+            return (len(dayoff_notify), len(keyword_notify))
         else:
             return False
-    
-    def showPage(self,resultpage):
+
+    def showPage(self, resultpage):
         if resultpage:
             dayoff_num = resultpage[0]
             keyword_num = resultpage[1]
             total_num = dayoff_num + keyword_num
             layout = [
-                [sg.Text('共收集到{0}条信息,其中日期检索{1}条,关键词检索{2}条。点击“查看结果”按钮查看详情。'.format(total_num,dayoff_num,keyword_num),size=(40,2),font=("微软雅黑", 13))],
-                [sg.Button('查看结果',key='_show_',size=(12,1),font=("微软雅黑", 13),pad=(100,2))]
+                [sg.Text('共收集到{0}条信息,其中日期检索{1}条,关键词检索{2}条。点击“查看结果”按钮查看详情。'.format(
+                    total_num, dayoff_num, keyword_num), size=(40, 2), font=("微软雅黑", 13))],
+                [sg.Button('查看结果', key='_show_', size=(12, 1),
+                           font=("微软雅黑", 13), pad=(100, 2))]
             ]
-            result_window = sg.Window('提示', default_element_size=(40, 3)).Layout(layout)
-            button,values = result_window.Read()
+            result_window = sg.Window(
+                '提示', default_element_size=(40, 3)).Layout(layout)
+            button, values = result_window.Read()
             if button == '_show_':
                 webbrowser.open('resultpage.html', 0, False)
             elif button in (None, 'Exit'):
                 result_window.Close()
 
-    def configWriter():
+    def configWriter(self):
         '''
         界面用于信息监测相关设置
         '''
-        config_parser = configparser.ConfigParser()
+        writer = configparser.ConfigParser()
         layout = [
             [sg.Text('监测间隔时间', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_time_', size=(
                 10, 1), font=("微软雅黑", 13)), sg.Text('分钟', size=(10, 1), font=("微软雅黑", 13))],
@@ -192,14 +195,13 @@ class CFRMonitor():
                 if time:
                     if keyword:
                         if dayoff:
-                            writer = config_parser
                             writer.add_section('setting')
                             writer.set('setting', 'time', time)
                             writer.set('setting', 'keyword', keyword)
                             writer.set('setting', 'dayoff', dayoff)
-                            with open(config_file,'w+',encoding='utf-8') as f:
+                            with open(self.config_file, 'w+', encoding='utf-8') as f:
                                 writer.write(f)
-                            sg.popup('配置文件写入成功',title='提示',font=("微软雅黑", 12))
+                            sg.popup('配置文件写入成功', title='提示', font=("微软雅黑", 12))
                             break
                         else:
                             sg.popup('信息有效期未填写', font=("微软雅黑", 12), title='提示')
@@ -218,43 +220,44 @@ class CFRMonitor():
         '''
         界面用于读取本地配置文件
         '''
-        config_parser = configparser.ConfigParser()
-        reader = config_parser.read(self.config_file, encoding='utf-8')
+        reader = configparser.ConfigParser()
+        reader.read(self.config_file, encoding='utf-8')
         time = reader.getint('setting', 'time')
         dayoff = reader.getint('setting', 'dayoff')
         keyword = reader.get('setting', 'keyword')
-        return (time,dayoff,keyword)
+        return (time, dayoff, keyword)
 
     def gui(self):
         '''
         程序入口
         '''
-        if os.path.isfile(config_file):
-            image_base64 = ready_base64
+        if os.path.isfile(self.config_file):
+            image_base64 = self.ready_base64
             ready_flag = True
         else:
-            image_base64 = unready_base64
+            image_base64 = self.unready_base64
             ready_flag = False
         layout = [
             [sg.Text('若配置文件不存在或想修改配置文件内容,请点击“写入配置文件”按钮。', size=(
                 33, 2), text_color='red', font=("微软雅黑", 15))],
             [sg.Text('配置文件是否存在：', size=(18, 1), border_width=5, pad=(
-                (30, 15), (20, 20)), font=("微软雅黑", 15)), sg.Image(data=image_base64,key='_image_')],
-            [sg.Button(button_text='开始监测', key='_start_',visible=ready_flag,size=(12, 1), font=("微软雅黑", 13), pad=(25, 0)), sg.Button(
-                button_text='写入配置文件', key='_config_', size=(12, 1), font=("微软雅黑", 13))]
+                (30, 15), (20, 20)), font=("微软雅黑", 15)), sg.Image(data=image_base64, key='_image_')],
+            [sg.Button(button_text='写入配置文件', key='_config_', size=(12, 1), font=("微软雅黑", 13),pad=(40,0)), sg.Button(
+                button_text='开始监测', key='_start_', visible=ready_flag, size=(12, 1), font=("微软雅黑", 13))],
         ]
         main_window = sg.Window(
             'CFR信息监测工具', default_element_size=(40, 3)).Layout(layout)
         while True:
             button, values = main_window.Read()
             if button == '_config_':
-                configWriter()
-                main_window.find_element('_image_').update(data = ready_base64)
-                main_window.find_element('_start_').update(visible = True)
+                self.configWriter()
+                main_window.find_element('_image_').update(
+                    data=self.ready_base64)
+                main_window.find_element('_start_').update(visible=True)
                 continue
             elif button == '_start_':
                 self.workflow()
-                main_window.Minimize() 
+                main_window.Minimize()
             elif button in (None, '_exit_'):
                 break
         main_window.Close()
@@ -263,13 +266,14 @@ class CFRMonitor():
         '''
         监测程序流程控制
         '''
-        time,dayoff,keyword = self.configReader()
+        time, dayoff, keyword = self.configReader()
         #轮训时间怎么确定
         content = self.getPage()
         article_infos = self.newsParser(content)
         notify_tuple = self.notify(article_infos, keyword, dayoff)
         resultPage = self.resultPage(notify_tuple)
-        showPage(resultPage)
+        self.showPage(resultPage)
+
 
 if __name__ == '__main__':
     cfr = CFRMonitor()
