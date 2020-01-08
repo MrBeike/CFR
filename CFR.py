@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import os
 import time
 import requests
 import PySimpleGUI as sg
@@ -16,8 +17,6 @@ Task:
 关于亚洲方面的报告	https://www.cfr.org/publications?topics=All&regions=115&field_publication_type_target_id=All&sort_by=field_book_release_date_value&sort_order=DESC
 '''
 # TODO
-# configparser读取ini文件
-# config(self) 写入ini文件
 # 信息有效期dayoff？小时？
 
 
@@ -40,8 +39,8 @@ class CFRMonitor():
         self.page = '0'
         self.configparser = configparser.ConfigParser()
         self.config_file = 'config.ini'
-        self.ready_base64 = b'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'
-        self.unready_base64 = b'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'
+        self.unready_base64 = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABUFBMVEUAAAAXHBwXHB8XHCAUGx4VGx4WGx4XGx4RGh0QGRwXHB8SGh0QGRwhICMuJSgTGx4WHB8hICMQGRweHyJGLjAQGRweHyIRGh0SGh0gHyJFLjAgHyISGh0RGh0sJCYUGx5AKy4WGx4UGx4RGh0QGRwRGh1DLS8WHB8+Ki0+Ky0RGh0SGh1HLjE+Ky0YHSATGh06KSsXHB8eJCg/Ky0WGh0bISUbIiYTGh0sJCcWGx4ZHiIfJioWGx4gHyISGh0WGx0YHiEWGx0XHB8eHyIRGh0WGx6HR0jKYWGKSEqFRkj5c3P/d3fSZGSJSEm+W1z/dXX/dna/W1zFXl7FXl/ZZmfGXl/QYmPTZGTYZmbMYGHLYGHTZGW2WFnna2vzcHD/dHQ/OT5KQEZIQEVhRkt8RUc7R09HV2FGV2E4Rk4tNj1FU11IV2GFRkc5RU28Wlv///+6P0bJAAAARnRSTlMAAAAAAAAAABk0BBwmu+9uAr8pvvRuwykZu/S/GjTvbvQBcG5wcPgB+PlybvT4Am70bvT0NO/0cO8cwPRwxB0qxHACyC0a7TGk3QAAAAFiS0dEb1UIYYEAAAAHdElNRQfkAQgJIheSZQoDAAABV0lEQVQ4y83SazcCQRjA8ZrdopV2US5R7WovCrkV6UoiKjZd3OVaRHz/l3barZ5O4zXzbs7/d/bszDwm079ZZoRXd9fZmAc6RY/amK5AiLGN0ZQZdot93MFyukCIYx0TkxYgEG2fOso5XR2hdZczdzw9Q6M+mJ07yReKbixwdxcL+dP5BQA83jNVLekC95Kqnns9ADA+vqwLQdB7hV9kAECc3xCiaHSJ6x8bClkmdSCqVWIHQus1QsdCkZYutFy6DASV4a4BQZSvMKjKokD6gHH+3n380q9viELryyu3+P8Cq2WCQCi0tn53X3+o8UGJJwjEbGw+Pj2/vG5JimLcmJOFVx2ONJrNt/ftnVD3PgqVKHys3Vjr47MRT4Q6z41FvZ1MAWBN77W+4vsZY2D8/Hf7IAsGhkIj6VgkkemNnC+azFoQZQLCehiGQ+tJ0bBjMTT2A/1v1w/od0m7w7z/ewAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0xMi0yOFQwOTozMTo1NiswMDowMLhrE7kAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDhUMTk6NDY6NDMrMDA6MDATQUaYAAAAIHRFWHRzb2Z0d2FyZQBodHRwczovL2ltYWdlbWFnaWNrLm9yZ7zPHZ0AAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAYdEVYdFRodW1iOjpJbWFnZTo6SGVpZ2h0ADUxMo+NU4EAAAAXdEVYdFRodW1iOjpJbWFnZTo6V2lkdGgANTEyHHwD3AAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTQ2OTc2ODAz+0aqYAAAABJ0RVh0VGh1bWI6OlNpemUAMTQzNzdCYRhbVQAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2RhdGEvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vZmlsZXMvMTE4LzExODcyNTIucG5nKZCMRQAAAABJRU5ErkJggg=='
+        self.ready_base64 = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABU1BMVEUAAAAXHB8XHBwWGx4XHCAXGx4XGx0YHh8XGh4TDRYWGh4XHB8WGh0WGx4XHB8WGx4cIiYZHiIWGh0YHSAhKCwZHiEWGR0WGR0eJCgZHiEWGx4XGx4WGh4ZJyYbISUWFxwgRDcfJioWGx4gQDUWGx0WFx0WGR0WGh4WGR0gJysgQjYZIyMWFxwaJCQgQTYYIiIePTMWGh4WGBwWFxwbLSkePDIWFxwXGx8WGB0ZIyMWFhwWFxwYISIYIiMWFhsgQTYePDMbLCkWGR0WGB09SVIvOUA+S1NJWGJHVl8vOT8vOj9IV2E6Rk4tcFQ8SlI7R087s3s3kWpCTlg6sHpE2ZM2j2lBTlg8SFBE1pFE15I2lGowOkAoZEtD1JBD1ZAzlWk7sXpC0I4tdlY3pnM3pXND1ZFCz40rcVJAyYkqcFIsdlYhRThCzow/woVAyok1n27///+tUAaaAAAARHRSTlMAAAAAAAAAAAAAAAQ0HAJu778pAvTDAm70vxoCbvTvbvT0cPRwAmWcKfT1wyn09MP0cAI07/RwAhzAKCrEwIXz9O9wGhId7HQAAAABYktHRHDYAGx0AAAAB3RJTUUH5AEICSIcBbfTiwAAAQtJREFUOMvNz9kjAlEUx/F7KlSTiZRQpMhW1mxF2WIw2ZcWJutI2f7/N91p7rgP93ju93g+35dDSPsO6Gz/ueTptjtsuMvenl5fB1YA9Hn9+f2Azw6I9wcHDpTDo8EhEHsoPHysqGphxANij4yenCrqWTQmgfVTJ+9j5xeXTR+XAcxbV5w9bfjV9c1tkXd5YnLKabzU8lK5cjfNeSgyc59I0sJ0rfowG2NOQArOPT49zzcL5trLwuIScwKp5dey/kYLy1dW1ywnsJ6uveu0yLhETsC9sVk3imxuS+DEAU6zaHyInCs+v3SR/xUa4lyBOCu+q5ibRe1nG/NWkd7ZRZ0W7r2UhDst6Eg77hdIKUIQ5bczeQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0xMi0yOFQwOTozMTo1NiswMDowMLhrE7kAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDhUMTk6NDY6MzkrMDA6MDC99BDPAAAAIHRFWHRzb2Z0d2FyZQBodHRwczovL2ltYWdlbWFnaWNrLm9yZ7zPHZ0AAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAYdEVYdFRodW1iOjpJbWFnZTo6SGVpZ2h0ADUxMo+NU4EAAAAXdEVYdFRodW1iOjpJbWFnZTo6V2lkdGgANTEyHHwD3AAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTQ2OTc2Nzk5wQ2/CgAAABJ0RVh0VGh1bWI6OlNpemUAMTIzMTZC887jBgAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2RhdGEvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vZmlsZXMvMTE4LzExODcyMDcucG5nsb2ShgAAAABJRU5ErkJggg=='
 
     def getPage(self):
         '''
@@ -69,7 +68,7 @@ class CFRMonitor():
                 content = response.content
                 return content
         except Exception as e:
-            print('Error:', e)
+            sg.popup(e, title='哦豁')
 
     def newsParser(self, content):
         '''
@@ -137,33 +136,53 @@ class CFRMonitor():
         return：resultpage.html 写入html文件
         '''
         dayoff_notify, keyword_notify = notify_tuple
-        env = Environment(loader=FileSystemLoader(
-            '.'), autoescape=select_autoescape(['html', 'xml']))
-        template = env.get_template('result.html')
-        html = template.render(dayoff_notify=dayoff_notify,
-                               keyword_notify=keyword_notify)
-        with open('resultpage.html', 'w', encoding='utf-8') as f:
-            f.write(html)
+        if dayoff_notify or keyword_notify:
+            env = Environment(loader=FileSystemLoader(
+                '.'), autoescape=select_autoescape(['html', 'xml']))
+            template = env.get_template('result.html')
+            html = template.render(dayoff_notify=dayoff_notify,
+                                keyword_notify=keyword_notify)
+            with open('resultpage.html', 'w', encoding='utf-8') as f:
+                f.write(html)
+            return (len(dayoff_notify),len(keyword_notify))
+        else:
+            return False
+    
+    def showPage(self,resultpage):
+        if resultpage:
+            dayoff_num = resultpage[0]
+            keyword_num = resultpage[1]
+            total_num = dayoff_num + keyword_num
+            layout = [
+                [sg.Text('共收集到{0}条信息,其中日期检索{1}条,关键词检索{2}条。点击“查看结果”按钮查看详情。'.format(total_num,dayoff_num,keyword_num),size=(40,2),font=("微软雅黑", 13))],
+                [sg.Button('查看结果',key='_show_',size=(12,1),font=("微软雅黑", 13),pad=(100,2))]
+            ]
+            result_window = sg.Window('提示', default_element_size=(40, 3)).Layout(layout)
+            button,values = result_window.Read()
+            if button == '_show_':
+                webbrowser.open('resultpage.html', 0, False)
+            elif button in (None, 'Exit'):
+                result_window.Close()
 
-    # TODO 布局优化
-    def configWriter(self):
+    def configWriter():
         '''
-        利用PySimpleGUI构建简单的界面用于信息监测相关设置
+        界面用于信息监测相关设置
         '''
+        config_parser = configparser.ConfigParser()
         layout = [
-            [sg.Text('轮训间隔时间', size=(12, 1), font=("宋体", 13)), sg.Input('', key='_time_', size=(
-                10, 1), font=("宋体", 13)), sg.Text('分钟', size=(10, 1), font=("宋体", 13))],
-            [sg.Text('监测关键词', size=(12, 1), font=("宋体", 13)), sg.Input('', key='_keyword_', size=(
-                10, 1), font=("宋体", 13)), sg.Text('多个关键词用,隔开', size=(18, 1), font=("宋体", 13))],
-            [sg.Text('信息有效期', size=(12, 1), font=("宋体", 13)), sg.Input('', key='_dayoff_', size=(
-                10, 1), font=("宋体", 13)), sg.Text('小时', size=(10, 1), font=("宋体", 13))],
+            [sg.Text('监测间隔时间', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_time_', size=(
+                10, 1), font=("微软雅黑", 13)), sg.Text('分钟', size=(10, 1), font=("微软雅黑", 13))],
+            [sg.Text('监测关键词', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_keyword_', size=(
+                10, 1), font=("微软雅黑", 13)), sg.Text('多个关键词用,隔开', size=(18, 1), font=("微软雅黑", 13))],
+            [sg.Text('信息有效期', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_dayoff_', size=(
+                10, 1), font=("微软雅黑", 13)), sg.Text('小时', size=(10, 1), font=("微软雅黑", 13))],
             [sg.Submit(button_text='写入配置文件', key='_write_', size=(12, 1), font=(
-                "宋体", 13)), sg.Cancel(button_text='退出', key='_exit_', size=(12, 1), font=("宋体", 13))]
+                "微软雅黑", 13)), sg.Cancel(button_text='退出', key='_exit_', size=(12, 1), font=("微软雅黑", 13))]
         ]
-        window = sg.Window(
+        config_window = sg.Window(
             'CFR信息监测设置', default_element_size=(40, 3)).Layout(layout)
         while True:
-            button, values = window.Read()
+            button, values = config_window.Read()
             if button == '_write_':
                 time = values['_time_'],
                 # pysimplegui Bug? 获取到的是一个tuple 形如(time,)
@@ -173,55 +192,87 @@ class CFRMonitor():
                 if time:
                     if keyword:
                         if dayoff:
-                            writer = self.configparser
+                            writer = config_parser
                             writer.add_section('setting')
                             writer.set('setting', 'time', time)
                             writer.set('setting', 'keyword', keyword)
                             writer.set('setting', 'dayoff', dayoff)
-                            with open(self.config_file, encoding='utf-8') as f:
+                            with open(config_file,'w+',encoding='utf-8') as f:
                                 writer.write(f)
+                            sg.popup('配置文件写入成功',title='提示',font=("微软雅黑", 12))
+                            break
                         else:
                             sg.popup('信息有效期未填写', font=("微软雅黑", 12), title='提示')
+                            continue
                     else:
                         sg.popup('监测关键词未填写', font=("微软雅黑", 12), title='提示')
+                        continue
                 else:
-                    sg.popup('监测时间未填写', font=("微软雅黑", 12), title='提示')
+                    sg.popup('信息有效期未填写', font=("微软雅黑", 12), title='提示')
+                    continue
             elif button in (None, '_exit_'):
                 break
+        config_window.Close()
 
+    #TODO 参数如何传递？
     def configReader(self):
         '''
-        利用configparser读取本地配置文件
+        界面用于读取本地配置文件
         '''
-        reader = self.configparser.read(self.config_file, encoding='utf-8')
+        config_parser = configparser.ConfigParser()
+        reader = config_parser.read(self.config_file, encoding='utf-8')
         time = reader.getint('setting', 'time')
         dayoff = reader.getint('setting', 'dayoff')
         keyword = reader.get('setting', 'keyword')
-        return
+        return (time,dayoff,keyword)
 
     def gui(self):
-        if os.path.isfile(self.config_file):
-            image_base64 = self.ready_base64
+        '''
+        程序入口
+        '''
+        if os.path.isfile(config_file):
+            image_base64 = ready_base64
+            ready_flag = True
         else:
-            image_base64 = self.unready_base64
+            image_base64 = unready_base64
+            ready_flag = False
         layout = [
-            [sg.Text('CFR信息监测工具', size=(12, 1), font=("宋体", 13))],
-            [sg.Text('配置文件存在？', size=(12, 1), font=("宋体", 13)),
-             sg.Image(data=image_base64)],
-            [sg.Button(button_text='开始监测', key='_start_', size=(12, 1), font=("宋体", 13)), sg.Button(
-                button_text='写入配置文件', key='_config_', size=(12, 1), font=("宋体", 13))]
+            [sg.Text('若配置文件不存在或想修改配置文件内容,请点击“写入配置文件”按钮。', size=(
+                33, 2), text_color='red', font=("微软雅黑", 15))],
+            [sg.Text('配置文件是否存在：', size=(18, 1), border_width=5, pad=(
+                (30, 15), (20, 20)), font=("微软雅黑", 15)), sg.Image(data=image_base64,key='_image_')],
+            [sg.Button(button_text='开始监测', key='_start_',visible=ready_flag,size=(12, 1), font=("微软雅黑", 13), pad=(25, 0)), sg.Button(
+                button_text='写入配置文件', key='_config_', size=(12, 1), font=("微软雅黑", 13))]
         ]
-        window = sg.Window(
+        main_window = sg.Window(
             'CFR信息监测工具', default_element_size=(40, 3)).Layout(layout)
         while True:
-            button, values = window.Read()
+            button, values = main_window.Read()
+            if button == '_config_':
+                configWriter()
+                main_window.find_element('_image_').update(data = ready_base64)
+                main_window.find_element('_start_').update(visible = True)
+                continue
+            elif button == '_start_':
+                self.workflow()
+                main_window.Minimize() 
+            elif button in (None, '_exit_'):
+                break
+        main_window.Close()
 
+    def workflow(self):
+        '''
+        监测程序流程控制
+        '''
+        time,dayoff,keyword = self.configReader()
+        #轮训时间怎么确定
+        content = self.getPage()
+        article_infos = self.newsParser(content)
+        notify_tuple = self.notify(article_infos, keyword, dayoff)
+        resultPage = self.resultPage(notify_tuple)
+        showPage(resultPage)
 
 # TODO keyword
 if __name__ == '__main__':
-    m = CFRMonitor()
-    content = m.getPage()
-    article_infos = m.newsParser(content)
-    notify_tuple = m.notify(article_infos, 'Conflicts', 400)
-    resultPage = m.resultPage(notify_tuple)
-    webbrowser.open('resultpage.html', 0, False)
+    cfr = CFRMonitor()
+    cfr.gui()
