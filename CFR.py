@@ -178,7 +178,7 @@ class CFRMonitor():
             [sg.Text('监测关键词', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_keyword_', size=(
                 10, 1), font=("微软雅黑", 13)), sg.Text('多个关键词用,隔开', size=(18, 1), font=("微软雅黑", 13))],
             [sg.Text('信息有效期', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_dayoff_', size=(
-                10, 1), font=("微软雅黑", 13)), sg.Text('小时', size=(10, 1), font=("微软雅黑", 13))],
+                10, 1), font=("微软雅黑", 13)), sg.Text('天', size=(10, 1), font=("微软雅黑", 13))],
             [sg.Submit(button_text='写入配置文件', key='_write_', size=(12, 1), font=(
                 "微软雅黑", 13)), sg.Cancel(button_text='退出', key='_exit_', size=(12, 1), font=("微软雅黑", 13))]
         ]
