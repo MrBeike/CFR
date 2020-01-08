@@ -134,6 +134,9 @@ class CFRMonitor():
 
     #TODO 布局优化
     def config(self):
+        '''
+        利用PySimpleGUI构建简单的界面用于信息监测相关设置
+        '''
         layout = [
         [sg.Text('轮训间隔时间',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_time_',size=(10, 1), font=("宋体", 13)),sg.Text('分钟',size=(10, 1), font=("宋体", 13))],
         [sg.Text('监测关键词',size=(12, 1), font=("宋体", 13)),sg.Input('',key='_keyword_',size=(10, 1), font=("宋体", 13)),sg.Text('多个关键词用,隔开',size=(18, 1), font=("宋体", 13))],
@@ -141,10 +144,39 @@ class CFRMonitor():
         [sg.Submit(button_text='开始监测',key='_start_',size=(12, 1),font=("宋体", 13)), sg.Cancel(button_text='退出',key='_exit_',size=(12, 1),font=("宋体", 13))]
         ]
         window = sg.Window('CFR信息监测设置', default_element_size=(40, 3)).Layout(layout)
-        button,values = window.Read()
+        while True:
+            button,values = window.Read()
+            if button == '_start_':
+                print(values)
+                time = values['_time_'],
+                #pysimplegui Bug? 获取到的是一个tuple 形如(time,)
+                time= time[0]
+                keyword = values['_keyword_']
+                dayoff = values['_dayoff_']
+                if time:
+                    if keyword:
+                        if dayoff:
+                            value = {'time':time,
+                                    'keyword':keyword,
+                                    'dayoff':dayoff
+                                    }
+                        else:
+                            sg.popup('信息有效期未填写',font=("微软雅黑", 12), title='提示')
+                    else:
+                            sg.popup('监测关键词未填写',font=("微软雅黑", 12), title='提示')
+                else:
+                    sg.popup('监测时间未填写',font=("微软雅黑", 12), title='提示')
+                
+            elif button in (None,'_exit_'):
+                break
+
 
     def configReader(self):
-        reader = configparser.ConfigParser()    
+        parser = configparser.ConfigParser()
+        reader = parser.read(self.config_file)
+        time = reader.getint('setting','time')
+        dayoff = reader.getint('setting','dayoff')
+        keyword = reader.get('setting','keyword')
 
 
 #TODO keyword
