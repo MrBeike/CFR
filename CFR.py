@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import os
+import sys
 import time
 import requests
 import PySimpleGUI as sg
@@ -38,6 +39,16 @@ class CFRMonitor():
         self.config_file = 'config.ini'
         self.unready_base64 = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABUFBMVEUAAAAXHBwXHB8XHCAUGx4VGx4WGx4XGx4RGh0QGRwXHB8SGh0QGRwhICMuJSgTGx4WHB8hICMQGRweHyJGLjAQGRweHyIRGh0SGh0gHyJFLjAgHyISGh0RGh0sJCYUGx5AKy4WGx4UGx4RGh0QGRwRGh1DLS8WHB8+Ki0+Ky0RGh0SGh1HLjE+Ky0YHSATGh06KSsXHB8eJCg/Ky0WGh0bISUbIiYTGh0sJCcWGx4ZHiIfJioWGx4gHyISGh0WGx0YHiEWGx0XHB8eHyIRGh0WGx6HR0jKYWGKSEqFRkj5c3P/d3fSZGSJSEm+W1z/dXX/dna/W1zFXl7FXl/ZZmfGXl/QYmPTZGTYZmbMYGHLYGHTZGW2WFnna2vzcHD/dHQ/OT5KQEZIQEVhRkt8RUc7R09HV2FGV2E4Rk4tNj1FU11IV2GFRkc5RU28Wlv///+6P0bJAAAARnRSTlMAAAAAAAAAABk0BBwmu+9uAr8pvvRuwykZu/S/GjTvbvQBcG5wcPgB+PlybvT4Am70bvT0NO/0cO8cwPRwxB0qxHACyC0a7TGk3QAAAAFiS0dEb1UIYYEAAAAHdElNRQfkAQgJIheSZQoDAAABV0lEQVQ4y83SazcCQRjA8ZrdopV2US5R7WovCrkV6UoiKjZd3OVaRHz/l3barZ5O4zXzbs7/d/bszDwm079ZZoRXd9fZmAc6RY/amK5AiLGN0ZQZdot93MFyukCIYx0TkxYgEG2fOso5XR2hdZczdzw9Q6M+mJ07yReKbixwdxcL+dP5BQA83jNVLekC95Kqnns9ADA+vqwLQdB7hV9kAECc3xCiaHSJ6x8bClkmdSCqVWIHQus1QsdCkZYutFy6DASV4a4BQZSvMKjKokD6gHH+3n380q9viELryyu3+P8Cq2WCQCi0tn53X3+o8UGJJwjEbGw+Pj2/vG5JimLcmJOFVx2ONJrNt/ftnVD3PgqVKHys3Vjr47MRT4Q6z41FvZ1MAWBN77W+4vsZY2D8/Hf7IAsGhkIj6VgkkemNnC+azFoQZQLCehiGQ+tJ0bBjMTT2A/1v1w/od0m7w7z/ewAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0xMi0yOFQwOTozMTo1NiswMDowMLhrE7kAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDhUMTk6NDY6NDMrMDA6MDATQUaYAAAAIHRFWHRzb2Z0d2FyZQBodHRwczovL2ltYWdlbWFnaWNrLm9yZ7zPHZ0AAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAYdEVYdFRodW1iOjpJbWFnZTo6SGVpZ2h0ADUxMo+NU4EAAAAXdEVYdFRodW1iOjpJbWFnZTo6V2lkdGgANTEyHHwD3AAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTQ2OTc2ODAz+0aqYAAAABJ0RVh0VGh1bWI6OlNpemUAMTQzNzdCYRhbVQAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2RhdGEvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vZmlsZXMvMTE4LzExODcyNTIucG5nKZCMRQAAAABJRU5ErkJggg=='
         self.ready_base64 = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABU1BMVEUAAAAXHB8XHBwWGx4XHCAXGx4XGx0YHh8XGh4TDRYWGh4XHB8WGh0WGx4XHB8WGx4cIiYZHiIWGh0YHSAhKCwZHiEWGR0WGR0eJCgZHiEWGx4XGx4WGh4ZJyYbISUWFxwgRDcfJioWGx4gQDUWGx0WFx0WGR0WGh4WGR0gJysgQjYZIyMWFxwaJCQgQTYYIiIePTMWGh4WGBwWFxwbLSkePDIWFxwXGx8WGB0ZIyMWFhwWFxwYISIYIiMWFhsgQTYePDMbLCkWGR0WGB09SVIvOUA+S1NJWGJHVl8vOT8vOj9IV2E6Rk4tcFQ8SlI7R087s3s3kWpCTlg6sHpE2ZM2j2lBTlg8SFBE1pFE15I2lGowOkAoZEtD1JBD1ZAzlWk7sXpC0I4tdlY3pnM3pXND1ZFCz40rcVJAyYkqcFIsdlYhRThCzow/woVAyok1n27///+tUAaaAAAARHRSTlMAAAAAAAAAAAAAAAQ0HAJu778pAvTDAm70vxoCbvTvbvT0cPRwAmWcKfT1wyn09MP0cAI07/RwAhzAKCrEwIXz9O9wGhId7HQAAAABYktHRHDYAGx0AAAAB3RJTUUH5AEICSIcBbfTiwAAAQtJREFUOMvNz9kjAlEUx/F7KlSTiZRQpMhW1mxF2WIw2ZcWJutI2f7/N91p7rgP93ju93g+35dDSPsO6Gz/ueTptjtsuMvenl5fB1YA9Hn9+f2Azw6I9wcHDpTDo8EhEHsoPHysqGphxANij4yenCrqWTQmgfVTJ+9j5xeXTR+XAcxbV5w9bfjV9c1tkXd5YnLKabzU8lK5cjfNeSgyc59I0sJ0rfowG2NOQArOPT49zzcL5trLwuIScwKp5dey/kYLy1dW1ywnsJ6uveu0yLhETsC9sVk3imxuS+DEAU6zaHyInCs+v3SR/xUa4lyBOCu+q5ibRe1nG/NWkd7ZRZ0W7r2UhDst6Eg77hdIKUIQ5bczeQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxOS0xMi0yOFQwOTozMTo1NiswMDowMLhrE7kAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTktMDEtMDhUMTk6NDY6MzkrMDA6MDC99BDPAAAAIHRFWHRzb2Z0d2FyZQBodHRwczovL2ltYWdlbWFnaWNrLm9yZ7zPHZ0AAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAYdEVYdFRodW1iOjpJbWFnZTo6SGVpZ2h0ADUxMo+NU4EAAAAXdEVYdFRodW1iOjpJbWFnZTo6V2lkdGgANTEyHHwD3AAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTQ2OTc2Nzk5wQ2/CgAAABJ0RVh0VGh1bWI6OlNpemUAMTIzMTZC887jBgAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2RhdGEvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vZmlsZXMvMTE4LzExODcyMDcucG5nsb2ShgAAAABJRU5ErkJggg=='
+        self.gui()
+
+    def appPath(self, relativepath=''):
+        """Returns the base application path."""
+        if hasattr(sys, 'frozen'):
+            basePath = os.path.dirname(sys.executable)
+            # Handles PyInstaller
+        else:
+            basePath = os.path.dirname(__file__)
+        return os.path.join(basePath, relativepath)
 
     def getPage(self):
         '''
@@ -136,7 +147,7 @@ class CFRMonitor():
         dayoff_notify, keyword_notify = notify_tuple
         if dayoff_notify or keyword_notify:
             env = Environment(loader=FileSystemLoader(
-                '.'), autoescape=select_autoescape(['html', 'xml']))
+                self.appPath()), autoescape=select_autoescape(['html', 'xml']))
             template = env.get_template('result.html')
             html = template.render(dayoff_notify=dayoff_notify,
                                    keyword_notify=keyword_notify)
@@ -155,7 +166,7 @@ class CFRMonitor():
                 [sg.Text('共收集到{0}条信息,其中日期检索{1}条,关键词检索{2}条。点击“查看结果”按钮查看详情。'.format(
                     total_num, dayoff_num, keyword_num), size=(40, 2), font=("微软雅黑", 13))],
                 [sg.Button('查看结果', key='_show_', size=(12, 1),
-                           font=("微软雅黑", 13), pad=(100, 2))]
+                           font=("微软雅黑", 13), pad=(120, 2))]
             ]
             result_window = sg.Window(
                 '提示', default_element_size=(40, 3)).Layout(layout)
@@ -197,7 +208,7 @@ class CFRMonitor():
                             writer.set('setting', 'time', time)
                             writer.set('setting', 'keyword', keyword)
                             writer.set('setting', 'dayoff', dayoff)
-                            with open(self.config_file, 'w+', encoding='utf-8') as f:
+                            with open(self.appPath(self.config_file), 'w+', encoding='utf-8') as f:
                                 writer.write(f)
                             sg.popup('配置文件写入成功', title='提示', font=("微软雅黑", 12))
                             break
@@ -219,7 +230,7 @@ class CFRMonitor():
         界面用于读取本地配置文件
         '''
         reader = configparser.ConfigParser()
-        reader.read(self.config_file, encoding='utf-8')
+        reader.read(self.appPath(self.config_file), encoding='utf-8')
         time = reader.getint('setting', 'time')
         dayoff = reader.getint('setting', 'dayoff')
         keyword = reader.get('setting', 'keyword')
@@ -275,4 +286,3 @@ class CFRMonitor():
 
 if __name__ == '__main__':
     cfr = CFRMonitor()
-    cfr.gui()
