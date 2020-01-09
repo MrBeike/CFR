@@ -16,9 +16,6 @@ Task:
 关于贸易方面的报告	https://www.cfr.org/publications?topics=All&regions=All&field_publication_type_target_id=All&sort_by=field_book_release_date_value&sort_order=DESC	
 关于亚洲方面的报告	https://www.cfr.org/publications?topics=All&regions=115&field_publication_type_target_id=All&sort_by=field_book_release_date_value&sort_order=DESC
 '''
-# TODO
-# 信息有效期dayoff？小时？
-
 
 class CFRMonitor():
     def __init__(self):
@@ -68,7 +65,8 @@ class CFRMonitor():
                 content = response.content
                 return content
         except Exception as e:
-            sg.popup(e, title='哦豁')
+            sg.popup(e, title='哦豁',font=("微软雅黑", 12))
+            pass
 
     def newsParser(self, content):
         '''
@@ -256,8 +254,8 @@ class CFRMonitor():
                 main_window.find_element('_start_').update(visible=True)
                 continue
             elif button == '_start_':
-                self.workflow()
                 main_window.Minimize()
+                self.workflow()
             elif button in (None, '_exit_'):
                 break
         main_window.Close()
