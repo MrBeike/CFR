@@ -3,10 +3,10 @@
 import os
 import sys
 import time
-import requests
-import PySimpleGUI as sg
 import configparser
 import webbrowser
+import requests
+import PySimpleGUI as sg
 from datetime import datetime
 from bs4 import BeautifulSoup
 from jinja2 import Environment, PackageLoader, select_autoescape, FileSystemLoader
@@ -130,10 +130,12 @@ class CFRMonitor():
         '''
         dayoff_notify = []
         keyword_notify = []
+        keyword_list = keyword.split(',')   
         for article_info in article_infos:
             if article_info['dayoff'] <= dayoff:
                 dayoff_notify.append(article_info)
-                if keyword in (article_info['title'] or article_info['topic']):
+                keyword_check = [x in article_info['title'] for x in keyword_list]
+                if True in keyword_check:
                     keyword_notify.append(article_info)
         notify_tuple = (dayoff_notify, keyword_notify)
         return notify_tuple
@@ -158,6 +160,10 @@ class CFRMonitor():
             return False
 
     def showPage(self, resultpage):
+        '''
+        简单界面提示信息监测结果,查看结果功能
+        param: resultpage 监测结果是否有命中  bool
+        '''
         if resultpage:
             dayoff_num = resultpage[0]
             keyword_num = resultpage[1]
@@ -176,18 +182,19 @@ class CFRMonitor():
             elif button in (None, 'Exit'):
                 result_window.Close()
 
-    def configWriter(self):
+    def configWriter(self,time,dayoff,keyword):
         '''
         界面用于信息监测相关设置
+        param: time,dayoff,keyword 可选参数,此处为实现配置文件存在时,修改配置文件时显示当前设置  str
         '''
         writer = configparser.ConfigParser()
         layout = [
-            [sg.Text('监测间隔时间', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_time_', size=(
+            [sg.Text('监测间隔时间', size=(12, 1), font=("微软雅黑", 13)), sg.Input(time, key='_time_', size=(
                 10, 1), font=("微软雅黑", 13)), sg.Text('分钟', size=(10, 1), font=("微软雅黑", 13))],
-            [sg.Text('监测关键词', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_keyword_', size=(
-                10, 1), font=("微软雅黑", 13)), sg.Text('多个关键词用,隔开', size=(18, 1), font=("微软雅黑", 13))],
-            [sg.Text('信息有效期', size=(12, 1), font=("微软雅黑", 13)), sg.Input('', key='_dayoff_', size=(
+            [sg.Text('信息有效期', size=(12, 1), font=("微软雅黑", 13)), sg.Input(dayoff, key='_dayoff_', size=(
                 10, 1), font=("微软雅黑", 13)), sg.Text('天', size=(10, 1), font=("微软雅黑", 13))],
+            [sg.Text('监测关键词', size=(12, 1), font=("微软雅黑", 13)), sg.Input(keyword, key='_keyword_', size=(
+                10, 1), font=("微软雅黑", 13)), sg.Text('多个关键词用英文逗号隔开', size=(20, 1), font=("微软雅黑", 13))],
             [sg.Submit(button_text='写入配置文件', key='_write_', size=(12, 1), font=(
                 "微软雅黑", 13)), sg.Cancel(button_text='退出', key='_exit_', size=(12, 1), font=("微软雅黑", 13))]
         ]
@@ -243,9 +250,11 @@ class CFRMonitor():
         if os.path.isfile(self.config_file):
             image_base64 = self.ready_base64
             ready_flag = True
+            time,dayoff,keyword = self.configReader()
         else:
             image_base64 = self.unready_base64
             ready_flag = False
+            time = dayoff = keyword = ''
         layout = [
             [sg.Text('若配置文件不存在或想修改配置文件内容,请点击“写入配置文件”按钮。', size=(
                 33, 2), text_color='red', font=("微软雅黑", 15))],
@@ -259,10 +268,11 @@ class CFRMonitor():
         while True:
             button, values = main_window.Read()
             if button == '_config_':
-                self.configWriter()
+                self.configWriter(time,dayoff, keyword)
                 main_window.find_element('_image_').update(
                     data=self.ready_base64)
                 main_window.find_element('_start_').update(visible=True)
+                time,dayoff,keyword = self.configReader()
                 continue
             elif button == '_start_':
                 main_window.Minimize()

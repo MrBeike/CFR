@@ -5,3 +5,6 @@
 - BeautifulSoup
 - PySimpleGui
 - jinja2
+
+##Pyinstaller配置
+- 打包命令 pyinstaller -wF CFR.py
