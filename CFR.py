@@ -5,6 +5,7 @@ import sys
 import time
 import configparser
 import webbrowser
+import schedule
 import requests
 import PySimpleGUI as sg
 from datetime import datetime
@@ -276,17 +277,16 @@ class CFRMonitor():
                 continue
             elif button == '_start_':
                 main_window.Minimize()
-                self.workflow()
+                self.workflow(dayoff,keyword)
+                # schedule.every(time).minutes.do(self.workflow,dayoff,keyword)
             elif button in (None, '_exit_'):
                 break
         main_window.Close()
 
-    def workflow(self):
+    def workflow(self,dayoff,keyword):
         '''
         监测程序流程控制
         '''
-        time, dayoff, keyword = self.configReader()
-        #轮训时间怎么确定
         content = self.getPage()
         article_infos = self.newsParser(content)
         notify_tuple = self.notify(article_infos, keyword, dayoff)
@@ -295,4 +295,5 @@ class CFRMonitor():
 
 
 if __name__ == '__main__':
+    today = 
     cfr = CFRMonitor()
